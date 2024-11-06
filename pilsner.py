@@ -4,30 +4,30 @@ import numpy as np
 import time
 import keyboard  # For 'Esc' key exit
 
-# Define the ROI based on the provided coordinates
-x, y, width, height = 1130, 857, 766, 813
+# Define the expanded ROI to increase both horizontal and vertical view area
+x, y = 1130, 857
+width = 1500  # Increased width to cover more horizontal area
+height = 1000  # Increased height to cover more vertical area
+capture_height = height  # Set capture height to cover the full vertical game area
 
 # Load the template image for the beer bottle
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
-# Define a smaller capture height to focus on the upper-to-mid section of the game area for faster processing
-capture_height = height // 2  # Capture only the upper half where items are falling
-
 # Drop threshold y-coordinate (items below this y cannot be collected)
-drop_threshold_y = 1800 - y  # Set based on the observation you provided
+drop_threshold_y = 1900 - y  # Set based on your observations
 
 # Initialize variables to track the currently targeted item
 current_target_x = None
 target_lock_duration = 0.1  # Time to stay focused on a target (in seconds)
 
 def capture_screen():
-    """Captures a screenshot of the focused ROI area and returns it in grayscale."""
+    """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
     screenshot = pyautogui.screenshot(region=(x, y, width, capture_height))
     screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
     return cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
-def find_items(screen, template, threshold=0.5, debug=False):
+def find_items(screen, template, threshold=0.6, debug=False):
     """Finds all positions of items in the given screen and returns sorted positions by y-coordinate."""
     result = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
     locations = np.where(result >= threshold)
@@ -51,7 +51,7 @@ def move_to_item_absolute(item_x):
     # Ensure the basket can move fully left or right by calculating the absolute position
     absolute_x_position = x + item_x
     
-    # Limit the x-position to stay within the game area's full width
+    # Limit the x-position to stay within the game area's expanded width
     absolute_x_position = max(x, min(absolute_x_position, x + width))
 
     pyautogui.moveTo(absolute_x_position, y + height - 30)  # Move to item_x in game area near bottom
@@ -61,7 +61,7 @@ def main():
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
 
-    screen_center_x = x + width // 2  # Approximate center of the game area horizontally
+    screen_center_x = x + width // 2  # Approximate center of the expanded game area horizontally
 
     while True:
         if keyboard.is_pressed("esc"):
@@ -72,7 +72,7 @@ def main():
         screen = capture_screen()
 
         # Find positions of falling items (beer bottles)
-        item_positions = find_items(screen, template, threshold=0.5)
+        item_positions = find_items(screen, template, threshold=0.6)
         if not item_positions:
             print("No items detected.")
             current_target_x = None
