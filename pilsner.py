@@ -5,7 +5,7 @@ import time
 import keyboard  # For 'Esc' key exit
 
 # Define the ROI based on the provided coordinates
-x, y, width, height = 1130, 857, 766, 813
+x, y, width, height = 1200, 857, 766, 813
 
 # Load the template image for the beer bottle
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
