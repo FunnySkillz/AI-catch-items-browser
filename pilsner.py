@@ -5,7 +5,7 @@ import time
 import keyboard  # For 'Esc' key exit
 
 # Define the ROI based on the provided coordinates
-x, y, width, height = 1200, 857, 766, 813
+x, y, width, height = 1130, 857, 766, 813
 
 # Load the template image for the beer bottle
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
@@ -15,7 +15,7 @@ template_width, template_height = template.shape[::-1]
 capture_height = height // 2  # Capture only the upper half where items are falling
 
 # Drop threshold y-coordinate (items below this y cannot be collected)
-drop_threshold_y = 1710 - y  # Set based on the observation you provided
+drop_threshold_y = 1800 - y  # Set based on the observation you provided
 
 # Initialize variables to track the currently targeted item
 current_target_x = None
@@ -27,7 +27,7 @@ def capture_screen():
     screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
     return cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
-def find_items(screen, template, threshold=0.6, debug=False):
+def find_items(screen, template, threshold=0.5, debug=False):
     """Finds all positions of items in the given screen and returns sorted positions by y-coordinate."""
     result = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
     locations = np.where(result >= threshold)
@@ -48,7 +48,13 @@ def find_items(screen, template, threshold=0.6, debug=False):
 
 def move_to_item_absolute(item_x):
     """Moves the basket horizontally to align directly with the target item using absolute positioning."""
-    pyautogui.moveTo(x + item_x, y + height - 30)  # Move to item_x in game area near bottom
+    # Ensure the basket can move fully left or right by calculating the absolute position
+    absolute_x_position = x + item_x
+    
+    # Limit the x-position to stay within the game area's full width
+    absolute_x_position = max(x, min(absolute_x_position, x + width))
+
+    pyautogui.moveTo(absolute_x_position, y + height - 30)  # Move to item_x in game area near bottom
 
 def main():
     global current_target_x  # Track the current target
@@ -66,7 +72,7 @@ def main():
         screen = capture_screen()
 
         # Find positions of falling items (beer bottles)
-        item_positions = find_items(screen, template, threshold=0.6)
+        item_positions = find_items(screen, template, threshold=0.5)
         if not item_positions:
             print("No items detected.")
             current_target_x = None
