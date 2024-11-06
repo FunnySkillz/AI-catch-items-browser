@@ -5,15 +5,18 @@ import time
 import keyboard  # For 'Esc' key exit
 
 # Define the ROI based on the provided coordinates
-x, y, width, height = 1130, 857, 766, 813
+x, y, width, height = 1300, 857, 766, 813
 
 # Load the template image for the beer bottle
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
+# Define a smaller capture height to focus on the upper-to-mid section of the game area for faster processing
+capture_height = height // 2  # Capture only the upper half where items are falling
+
 def capture_screen():
-    """Captures a screenshot of the defined ROI and returns it in grayscale."""
-    screenshot = pyautogui.screenshot(region=(x, y, width, height))
+    """Captures a screenshot of the focused ROI area and returns it in grayscale."""
+    screenshot = pyautogui.screenshot(region=(x, y, width, capture_height))
     screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
     return cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
@@ -36,7 +39,7 @@ def find_items(screen, template, threshold=0.6, debug=False):
     return sorted(positions, key=lambda pos: pos[1])
 
 def move_to_item_absolute(item_x):
-    """Moves the basket horizontally to align directly with the target item using absolute positioning."""
+    """Moves the basket horizontally to align directly with the predicted item position using absolute positioning."""
     pyautogui.moveTo(x + item_x, y + height - 30)  # Move to item_x in game area near bottom
 
 def main():
@@ -55,16 +58,16 @@ def main():
         item_positions = find_items(screen, template, threshold=0.6)
         if not item_positions:
             print("No items detected.")
-            time.sleep(0.1)
             continue
 
-        # Target the closest item (lowest y-coordinate)
+        # Target the closest item (lowest y-coordinate in the upper half)
         closest_item_x = item_positions[0][0]
         
-        # Move the basket to align with the closest item using absolute positioning
+        # Move the basket to align with the predicted landing position of the closest item
         move_to_item_absolute(closest_item_x)
-        
-        time.sleep(0.01)
+
+        # Minimal sleep for maximum responsiveness
+        time.sleep(0.005)  # Adjust as needed for CPU load; can be reduced further or removed
 
 if __name__ == "__main__":
     main()
