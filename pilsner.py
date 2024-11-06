@@ -29,7 +29,7 @@ def find_positions(screen, template, threshold=0.8):
         positions.append((center_x, center_y))
 
     # Sort items by vertical position (y-coordinate) for items or return all positions found
-    return sorted(positions, key=lambda pos: pos[1]) if positions else None
+    return sorted(positions, key=lambda pos: pos[1]) if positions else []
 
 def main():
     print("Starting AI...")
@@ -51,26 +51,28 @@ def main():
         # Find positions of falling items (beer bottles)
         item_positions = find_positions(screen, template, threshold=0.8)
 
-        # Filter items to focus on the closest one to the basket
-        target_item = None
-        min_distance = float("inf")
-        
-        for item_x, item_y in item_positions:
-            # Calculate the distance between the item and the basket
-            distance_to_basket = abs(item_y - basket_y)
-            if distance_to_basket < min_distance:
-                target_item = (item_x, item_y)
-                min_distance = distance_to_basket
+        # Ensure item_positions is not empty before proceeding
+        if item_positions:
+            # Find the closest item to the basket
+            target_item = None
+            min_distance = float("inf")
+            
+            for item_x, item_y in item_positions:
+                # Calculate the distance between the item and the basket
+                distance_to_basket = abs(item_y - basket_y)
+                if distance_to_basket < min_distance:
+                    target_item = (item_x, item_y)
+                    min_distance = distance_to_basket
 
-        # If we found an item, move the mouse to align with it
-        if target_item:
-            target_item_x = target_item[0]
-            # Calculate the horizontal offset between the basket and the target item
-            offset_x = target_item_x - basket_x
+            # If a target item is found, move the mouse to align with it
+            if target_item:
+                target_item_x = target_item[0]
+                # Calculate the horizontal offset between the basket and the target item
+                offset_x = target_item_x - basket_x
 
-            # Move the mouse only if the item is not already centered with the basket
-            if abs(offset_x) > 10:  # Avoid tiny, unnecessary movements
-                pyautogui.moveRel(offset_x, 0, duration=0.05)  # Faster movement to align with item
+                # Move the mouse only if the item is not already centered with the basket
+                if abs(offset_x) > 10:  # Avoid tiny, unnecessary movements
+                    pyautogui.moveRel(offset_x, 0, duration=0.05)  # Faster movement to align with item
 
         # Pause briefly to avoid overloading the CPU
         time.sleep(0.05)
