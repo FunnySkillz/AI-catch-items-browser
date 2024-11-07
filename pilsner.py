@@ -32,7 +32,6 @@ pause_detected = False
 anticipated_pause_intervals = [2000, 4000, 6000, 8000]  # ms intervals when pauses might occur
 pause_start_time = None
 pause_in_progress = False
-lives = 3  # Starting with 3 lives as a maximum
 
 # Timer-based pause control
 last_pause_timestamp = time.time()
@@ -94,7 +93,7 @@ def handle_pause():
         pause_in_progress = False
 
 def main():
-    global item_speeds, pause_start_time, pause_in_progress, lives
+    global item_speeds, pause_start_time, pause_in_progress
     print("Starting AI... Press 'Esc' to stop.")
     logging.info("AI session started.")
     time.sleep(2)
@@ -115,10 +114,6 @@ def main():
             logging.debug("No items detected.")
             item_speeds = {}
             previous_positions = []
-            lives -= 1
-            if lives <= 0:
-                logging.info("Game Over: All lives lost.")
-                break
             continue
 
         if previous_positions:
