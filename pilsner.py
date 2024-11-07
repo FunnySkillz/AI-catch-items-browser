@@ -10,10 +10,10 @@ logging.basicConfig(filename="ai_game_log.txt", level=logging.DEBUG,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 logging.info("Starting AI log for game session")
 
-# Set the fixed coordinates for the game area
-x, y = 1000, 600
+# Updated ROI coordinates
+x, y = 1000, 450
 width = 1400
-height = 1050
+height = 1220
 capture_height = height
 
 # Load the template image for the beer bottle
@@ -24,15 +24,18 @@ template_width, template_height = template.shape[::-1]
 drop_threshold_y = y + height - 100
 collection_y = 950
 
-# Variables for tracking item positions, speeds, and scores
+# Variables for tracking item positions, speeds, and game state
 item_speeds = {}
 matching_threshold = 0.5
 target_lock_duration = 0.05
 pause_detected = False
-score = 0
-anticipated_pause_score = [2000, 4000]
+anticipated_pause_intervals = [2000, 4000, 6000, 8000]  # ms intervals when pauses might occur
 pause_start_time = None
 pause_in_progress = False
+lives = 3  # Starting with 3 lives as a maximum
+
+# Timer-based pause control
+last_pause_timestamp = time.time()
 
 def capture_screen():
     """Captures a screenshot of the specified ROI and returns it in grayscale."""
@@ -58,7 +61,8 @@ def update_item_speeds(current_positions, previous_positions, time_interval):
             closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
             if closest_prev and abs(pos[0] - closest_prev[0]) < 10:
                 speed = max((pos[1] - closest_prev[1]) / time_interval, 0.01)
-                speeds[pos[0]] = speed
+                if speed < 1000:  # Ignore unrealistically high speeds
+                    speeds[pos[0]] = speed
     logging.debug(f"Updated item speeds: {speeds}")
     return speeds
 
@@ -77,21 +81,20 @@ def move_to_item_absolute(item_x):
     pyautogui.moveTo(absolute_x_position, y + height - 30)
 
 def handle_pause():
-    """Handles the anticipated pauses at specific scores."""
-    global pause_start_time, pause_in_progress
-    if pause_start_time is None:
-        pause_start_time = time.time()
+    """Handles anticipated pauses based on elapsed time since last pause."""
+    global last_pause_timestamp, pause_in_progress
+    current_time = time.time()
+    
+    if current_time - last_pause_timestamp >= 20:  # Assume 20s intervals between known pause points
         pause_in_progress = True
+        last_pause_timestamp = current_time
         logging.info("Anticipated pause detected. Waiting for game to resume...")
-
-    if time.time() - pause_start_time >= 3:
+        time.sleep(3)  # Adjust for observed pause duration
         logging.info("Pause over, resuming AI actions.")
         pause_in_progress = False
-        return True
-    return False
 
 def main():
-    global item_speeds, score, pause_start_time, pause_in_progress
+    global item_speeds, pause_start_time, pause_in_progress, lives
     print("Starting AI... Press 'Esc' to stop.")
     logging.info("AI session started.")
     time.sleep(2)
@@ -103,14 +106,7 @@ def main():
             cv2.destroyAllWindows()
             break
 
-        # Check if we should handle an anticipated pause
-        if score in anticipated_pause_score and not pause_in_progress:
-            if handle_pause():
-                anticipated_pause_score.remove(score)
-                pause_start_time = None
-            else:
-                time.sleep(0.1)
-                continue
+        handle_pause()
 
         screen = capture_screen()
         item_positions = find_items(screen, template, threshold=matching_threshold)
@@ -119,9 +115,12 @@ def main():
             logging.debug("No items detected.")
             item_speeds = {}
             previous_positions = []
+            lives -= 1
+            if lives <= 0:
+                logging.info("Game Over: All lives lost.")
+                break
             continue
 
-        # Update item speeds based on current and previous positions
         if previous_positions:
             time_interval = target_lock_duration
             item_speeds = update_item_speeds(item_positions, previous_positions, time_interval)
@@ -129,10 +128,8 @@ def main():
         target_item = prioritize_item(item_positions)
 
         # Move only when the target is near the collection point and no pause is detected
-        if not pause_detected and target_item and target_item[1] >= collection_y - 50:
+        if not pause_in_progress and target_item and target_item[1] >= collection_y - 50:
             move_to_item_absolute(target_item[0])
-            score += 100
-            logging.info(f"Score updated: {score}")
 
         previous_positions = item_positions
         time.sleep(target_lock_duration)
