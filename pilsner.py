@@ -4,6 +4,7 @@ import numpy as np
 import time
 import keyboard  # For 'Esc' key exit
 import logging
+from scipy.spatial import KDTree  # Efficient nearest-neighbor search
 
 # Set up logging to file
 logging.basicConfig(filename="ai_game_log.txt", level=logging.DEBUG, 
@@ -20,17 +21,16 @@ capture_height = height
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
+# Collection thresholds and parameters
+collection_y_threshold = 955  # Adjusted for better accuracy
+focus_zone_y = 900  # Y-coordinate below which items have priority to minimize switching
+
 # Drop threshold and collection point y-coordinate
 drop_threshold_y = y + height - 100
-collection_y = 950
 
-# Variables for tracking item positions, speeds, and game state
-item_speeds = {}
+# Variables for tracking game state
 matching_threshold = 0.5
 target_lock_duration = 0.05
-pause_detected = False
-anticipated_pause_intervals = [2000, 4000, 6000, 8000]  # ms intervals when pauses might occur
-pause_start_time = None
 pause_in_progress = False
 
 # Timer-based pause control
@@ -52,23 +52,16 @@ def find_items(screen, template, threshold=matching_threshold):
     logging.debug(f"Items detected: {positions}")
     return sorted([pos for pos in positions if pos[1] < drop_threshold_y], key=lambda pos: pos[1])
 
-def update_item_speeds(current_positions, previous_positions, time_interval):
-    """Calculates the speed of each item based on its movement over time."""
-    speeds = {}
-    if not pause_detected:
-        for pos in current_positions:
-            closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
-            if closest_prev and abs(pos[0] - closest_prev[0]) < 10:
-                speed = max((pos[1] - closest_prev[1]) / time_interval, 0.01)
-                if speed < 1000:  # Ignore unrealistically high speeds
-                    speeds[pos[0]] = speed
-    logging.debug(f"Updated item speeds: {speeds}")
-    return speeds
-
-def prioritize_item(items):
-    """Selects the item closest to the collection point based on its y-coordinate."""
+def prioritize_item(items, basket_x):
+    """Uses KDTree for efficient nearest-neighbor search to select the closest item."""
     if items:
-        closest_item = min(items, key=lambda pos: abs(collection_y - pos[1]))
+        # Create a KDTree for quick nearest-neighbor search
+        kdtree = KDTree(items)
+        
+        # Query for the nearest item to the basket x-coordinate
+        _, idx = kdtree.query([basket_x, focus_zone_y], k=1)
+        closest_item = items[idx]  # Retrieve the closest item position
+        
         logging.info(f"Targeting item at ({closest_item[0]}, {closest_item[1]})")
         return closest_item
     return None
@@ -93,12 +86,12 @@ def handle_pause():
         pause_in_progress = False
 
 def main():
-    global item_speeds, pause_start_time, pause_in_progress
     print("Starting AI... Press 'Esc' to stop.")
     logging.info("AI session started.")
     time.sleep(2)
 
-    previous_positions = []
+    basket_x = x + width // 2  # Approximate x-coordinate of the basket's center
+
     while True:
         if keyboard.is_pressed("esc"):
             logging.info("AI session ended by user.")
@@ -112,21 +105,14 @@ def main():
 
         if not item_positions:
             logging.debug("No items detected.")
-            item_speeds = {}
-            previous_positions = []
             continue
 
-        if previous_positions:
-            time_interval = target_lock_duration
-            item_speeds = update_item_speeds(item_positions, previous_positions, time_interval)
+        target_item = prioritize_item(item_positions, basket_x)
 
-        target_item = prioritize_item(item_positions)
-
-        # Move only when the target is near the collection point and no pause is detected
-        if not pause_in_progress and target_item and target_item[1] >= collection_y - 50:
+        # Move the basket to the target item position if within collection range
+        if target_item and target_item[1] >= collection_y_threshold - 5:
             move_to_item_absolute(target_item[0])
 
-        previous_positions = item_positions
         time.sleep(target_lock_duration)
 
 if __name__ == "__main__":
