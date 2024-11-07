@@ -15,12 +15,13 @@ template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
 # Drop threshold and collection point y-coordinate
-drop_threshold_y = y + height - 100  # Filter out items below this
+drop_threshold_y = y + height - 100  # Filter out items below this threshold
 collection_y = 950  # The y-coordinate where items should be collected
 
-# Initialize variables to track item positions and speeds
+# Variables for tracking item positions and speeds
 item_speeds = {}  # Dictionary to track speeds of items
 matching_threshold = 0.5
+target_lock_duration = 0.1  # Time to stay focused on a target (in seconds)
 
 def capture_screen():
     """Captures a screenshot of the specified ROI and returns it in grayscale."""
@@ -41,43 +42,39 @@ def update_item_speeds(current_positions, previous_positions, time_interval):
     """Calculates the speed of each item based on its movement over time."""
     speeds = {}
     for pos in current_positions:
-        for prev_pos in previous_positions:
-            if abs(pos[0] - prev_pos[0]) < 10:  # Match items by x-coordinate
-                speed = (pos[1] - prev_pos[1]) / time_interval
-                speeds[pos[0]] = speed  # Store speed using x-coordinate as key
-                break
+        # Find the closest previous position by x-coordinate to match the item
+        closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
+        if closest_prev and abs(pos[0] - closest_prev[0]) < 10:  # Match items by proximity in x
+            speed = (pos[1] - closest_prev[1]) / time_interval
+            speeds[pos[0]] = max(0, speed)  # Store speed; ensure non-negative
     return speeds
 
 def prioritize_item(items):
-    """Selects the item closest to the collection point, considering its speed."""
+    """Selects the item closest to the collection point, considering its speed if available."""
     closest_item = None
-    min_distance = float('inf')
-    
+    min_time_to_reach = float('inf')
+
     for item in items:
         x, y_pos = item
-        if x in item_speeds:  # Check if we have speed data for this item
-            time_to_reach = (collection_y - y_pos) / item_speeds[x]
-            distance = abs(collection_y - y_pos) / time_to_reach if time_to_reach > 0 else abs(collection_y - y_pos)
-        else:
-            distance = abs(collection_y - y_pos)
+        distance = abs(collection_y - y_pos)
+        time_to_reach = distance / item_speeds.get(x, 1)  # Use speed if available, else assume speed of 1
         
-        if distance < min_distance:
-            min_distance = distance
+        if time_to_reach < min_time_to_reach:
+            min_time_to_reach = time_to_reach
             closest_item = item
-            
+
     return closest_item
 
 def move_to_item_absolute(item_x):
     """Moves the basket horizontally to align directly with the target item using absolute positioning."""
-    absolute_x_position = x + item_x
-    absolute_x_position = max(x, min(absolute_x_position, x + width))
+    absolute_x_position = max(x, min(x + item_x, x + width))
     pyautogui.moveTo(absolute_x_position, y + height - 30)
 
 def main():
-    global item_speeds  # Track speeds of items between frames
+    global item_speeds
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
-    
+
     previous_positions = []
     while True:
         if keyboard.is_pressed("esc"):
@@ -87,21 +84,22 @@ def main():
         
         screen = capture_screen()
         item_positions = find_items(screen, template, threshold=matching_threshold)
-        
+
         if not item_positions:
             item_speeds = {}
             previous_positions = []
             continue
 
-        # Update speeds of detected items
+        # Update item speeds based on current and previous positions
         if previous_positions:
             time_interval = target_lock_duration  # Time between frames
             item_speeds = update_item_speeds(item_positions, previous_positions, time_interval)
-        
-        # Select the item to prioritize based on closest distance and speed
+
+        # Select the item closest to the collection point, taking speed into account
         target_item = prioritize_item(item_positions)
-        
-        if target_item and target_item[1] >= collection_y - 50:  # Only move if target is near collection point
+
+        # Move only when the target is near the collection point
+        if target_item and target_item[1] >= collection_y - 50:
             move_to_item_absolute(target_item[0])
 
         previous_positions = item_positions
