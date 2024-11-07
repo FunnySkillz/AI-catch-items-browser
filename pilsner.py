@@ -8,8 +8,6 @@ import logging
 # Set up logging to file
 logging.basicConfig(filename="ai_game_log.txt", level=logging.DEBUG, 
                     format="%(asctime)s - %(levelname)s - %(message)s")
-
-# Log file header
 logging.info("Starting AI log for game session")
 
 # Set the fixed coordinates for the game area
@@ -30,7 +28,6 @@ collection_y = 950
 item_speeds = {}
 matching_threshold = 0.5
 target_lock_duration = 0.05
-pause_frame_threshold = 10
 pause_detected = False
 score = 0
 anticipated_pause_score = [2000, 4000]
@@ -55,36 +52,23 @@ def find_items(screen, template, threshold=matching_threshold):
 
 def update_item_speeds(current_positions, previous_positions, time_interval):
     """Calculates the speed of each item based on its movement over time."""
-    global pause_detected
     speeds = {}
-    
     if not pause_detected:
         for pos in current_positions:
             closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
             if closest_prev and abs(pos[0] - closest_prev[0]) < 10:
-                speed = (pos[1] - closest_prev[1]) / time_interval
-                speeds[pos[0]] = max(0.01, speed)
+                speed = max((pos[1] - closest_prev[1]) / time_interval, 0.01)
+                speeds[pos[0]] = speed
     logging.debug(f"Updated item speeds: {speeds}")
     return speeds
 
 def prioritize_item(items):
-    """Selects the item closest to the collection point, considering its speed if available."""
-    closest_item = None
-    min_time_to_reach = float('inf')
-
-    for item in items:
-        x, y_pos = item
-        distance = abs(collection_y - y_pos)
-        speed = item_speeds.get(x, 0.01)
-        time_to_reach = distance / speed
-        
-        if time_to_reach < min_time_to_reach:
-            min_time_to_reach = time_to_reach
-            closest_item = item
-
-    if closest_item:
-        logging.info(f"Targeting item at ({closest_item[0]}, {closest_item[1]}) with estimated time to reach: {min_time_to_reach:.2f}s")
-    return closest_item
+    """Selects the item closest to the collection point based on its y-coordinate."""
+    if items:
+        closest_item = min(items, key=lambda pos: abs(collection_y - pos[1]))
+        logging.info(f"Targeting item at ({closest_item[0]}, {closest_item[1]})")
+        return closest_item
+    return None
 
 def move_to_item_absolute(item_x):
     """Moves the basket horizontally to align directly with the target item using absolute positioning."""
@@ -142,7 +126,6 @@ def main():
             time_interval = target_lock_duration
             item_speeds = update_item_speeds(item_positions, previous_positions, time_interval)
 
-        # Select the item closest to the collection point, taking speed into account
         target_item = prioritize_item(item_positions)
 
         # Move only when the target is near the collection point and no pause is detected
