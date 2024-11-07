@@ -4,10 +4,10 @@ import numpy as np
 import time
 import keyboard  # For 'Esc' key exit
 
-# Define the expanded ROI to increase both horizontal and vertical view area
-x, y = 1130, 857
-width = 1500  # Increased width to cover more horizontal area
-height = 1000  # Increased height to cover more vertical area
+# Set the fixed coordinates for the game area based on your latest values
+x, y = 1000, 600
+width = 1400  # Covers the full horizontal game area
+height = 1050  # Covers the full vertical game area
 capture_height = height  # Set capture height to cover the full vertical game area
 
 # Load the template image for the beer bottle
@@ -15,43 +15,38 @@ template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
 # Drop threshold y-coordinate (items below this y cannot be collected)
-drop_threshold_y = 1900 - y  # Set based on your observations
+drop_threshold_y = y + height - 100  # Set based on your observations; adjust if needed
 
 # Initialize variables to track the currently targeted item
 current_target_x = None
 target_lock_duration = 0.1  # Time to stay focused on a target (in seconds)
 
+# Lower threshold for better sensitivity in matching
+matching_threshold = 0.5  # Lowered threshold for improved detection
+
 def capture_screen():
-    """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
+    """Captures a screenshot of the specified ROI and returns it in grayscale."""
     screenshot = pyautogui.screenshot(region=(x, y, width, capture_height))
     screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
-    return cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
+    gray_screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
+    # Apply slight Gaussian blur to reduce noise and improve matching consistency
+    gray_screen = cv2.GaussianBlur(gray_screen, (3, 3), 0)
+    return gray_screen
 
-def find_items(screen, template, threshold=0.6, debug=False):
+def find_items(screen, template, threshold=matching_threshold):
     """Finds all positions of items in the given screen and returns sorted positions by y-coordinate."""
     result = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
     locations = np.where(result >= threshold)
     positions = [(loc[0] + template.shape[1] // 2, loc[1] + template.shape[0] // 2) for loc in zip(*locations[::-1])]
-    
-    # Debugging visuals to see matched items
-    if debug:
-        for loc in zip(*locations[::-1]):
-            top_left = (loc[0], loc[1])
-            bottom_right = (loc[0] + template.shape[1], loc[1] + template.shape[0])
-            cv2.rectangle(screen, top_left, bottom_right, (0, 255, 0), 2)
-        cv2.imshow("Match Debug", screen)
-        if cv2.waitKey(1) & 0xFF == ord('q'):  # Press 'q' to close debugging window
-            cv2.destroyAllWindows()
-
     # Filter out items below the drop threshold
     return sorted([pos for pos in positions if pos[1] < drop_threshold_y], key=lambda pos: pos[1])
 
 def move_to_item_absolute(item_x):
     """Moves the basket horizontally to align directly with the target item using absolute positioning."""
-    # Ensure the basket can move fully left or right by calculating the absolute position
+    # Calculate the absolute x-position within the game area
     absolute_x_position = x + item_x
     
-    # Limit the x-position to stay within the game area's expanded width
+    # Limit the x-position to stay within the game area's width
     absolute_x_position = max(x, min(absolute_x_position, x + width))
 
     pyautogui.moveTo(absolute_x_position, y + height - 30)  # Move to item_x in game area near bottom
@@ -60,8 +55,6 @@ def main():
     global current_target_x  # Track the current target
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
-
-    screen_center_x = x + width // 2  # Approximate center of the expanded game area horizontally
 
     while True:
         if keyboard.is_pressed("esc"):
@@ -72,7 +65,7 @@ def main():
         screen = capture_screen()
 
         # Find positions of falling items (beer bottles)
-        item_positions = find_items(screen, template, threshold=0.6)
+        item_positions = find_items(screen, template, threshold=matching_threshold)
         if not item_positions:
             print("No items detected.")
             current_target_x = None
