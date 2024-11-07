@@ -22,6 +22,7 @@ collection_y = 950  # The y-coordinate where items should be collected
 item_speeds = {}  # Dictionary to track speeds of items
 matching_threshold = 0.5
 target_lock_duration = 0.1  # Time to stay focused on a target (in seconds)
+pause_detected = False  # Flag to indicate if a pause is detected
 
 def capture_screen():
     """Captures a screenshot of the specified ROI and returns it in grayscale."""
@@ -40,13 +41,22 @@ def find_items(screen, template, threshold=matching_threshold):
 
 def update_item_speeds(current_positions, previous_positions, time_interval):
     """Calculates the speed of each item based on its movement over time."""
+    global pause_detected
     speeds = {}
-    for pos in current_positions:
-        # Find the closest previous position by x-coordinate to match the item
-        closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
-        if closest_prev and abs(pos[0] - closest_prev[0]) < 10:  # Match items by proximity in x
-            speed = (pos[1] - closest_prev[1]) / time_interval
-            speeds[pos[0]] = max(0, speed)  # Store speed; ensure non-negative
+    
+    # Detect pause if all items have the same y-coordinates as in the previous frame
+    if previous_positions and all(pos[1] == prev_pos[1] for pos, prev_pos in zip(current_positions, previous_positions)):
+        pause_detected = True
+    else:
+        pause_detected = False  # Reset pause flag if items are moving
+
+    # Update speeds only if no pause is detected
+    if not pause_detected:
+        for pos in current_positions:
+            closest_prev = min(previous_positions, key=lambda p: abs(pos[0] - p[0]), default=None)
+            if closest_prev and abs(pos[0] - closest_prev[0]) < 10:
+                speed = (pos[1] - closest_prev[1]) / time_interval
+                speeds[pos[0]] = max(0.01, speed)  # Ensure minimum speed to avoid zero division
     return speeds
 
 def prioritize_item(items):
@@ -57,7 +67,8 @@ def prioritize_item(items):
     for item in items:
         x, y_pos = item
         distance = abs(collection_y - y_pos)
-        time_to_reach = distance / item_speeds.get(x, 1)  # Use speed if available, else assume speed of 1
+        speed = item_speeds.get(x, 0.01)  # Use speed if available, else assume a small speed of 0.01
+        time_to_reach = distance / speed
         
         if time_to_reach < min_time_to_reach:
             min_time_to_reach = time_to_reach
@@ -98,8 +109,8 @@ def main():
         # Select the item closest to the collection point, taking speed into account
         target_item = prioritize_item(item_positions)
 
-        # Move only when the target is near the collection point
-        if target_item and target_item[1] >= collection_y - 50:
+        # Move only when the target is near the collection point and no pause is detected
+        if not pause_detected and target_item and target_item[1] >= collection_y - 50:
             move_to_item_absolute(target_item[0])
 
         previous_positions = item_positions
