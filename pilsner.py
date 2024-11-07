@@ -47,6 +47,7 @@ def update_item_speeds(current_positions, previous_positions, time_interval):
     # Detect pause if all items have the same y-coordinates as in the previous frame
     if previous_positions and all(pos[1] == prev_pos[1] for pos, prev_pos in zip(current_positions, previous_positions)):
         pause_detected = True
+        print("Game pause detected. Waiting for game to resume...")
     else:
         pause_detected = False  # Reset pause flag if items are moving
 
@@ -74,12 +75,15 @@ def prioritize_item(items):
             min_time_to_reach = time_to_reach
             closest_item = item
 
+    if closest_item:
+        print(f"Targeting item at ({closest_item[0]}, {closest_item[1]}) with estimated time to reach: {min_time_to_reach:.2f}s")
     return closest_item
 
 def move_to_item_absolute(item_x):
     """Moves the basket horizontally to align directly with the target item using absolute positioning."""
     absolute_x_position = max(x, min(x + item_x, x + width))
     pyautogui.moveTo(absolute_x_position, y + height - 30)
+    print(f"Moving basket to x-position: {absolute_x_position}")
 
 def main():
     global item_speeds
@@ -97,6 +101,7 @@ def main():
         item_positions = find_items(screen, template, threshold=matching_threshold)
 
         if not item_positions:
+            print("No items detected.")
             item_speeds = {}
             previous_positions = []
             continue
