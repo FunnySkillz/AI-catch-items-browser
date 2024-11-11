@@ -8,7 +8,7 @@ from scipy.spatial import distance
 
 # Configure logging
 logging.basicConfig(filename="game_log.txt", level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
-logging.info("Starting AI log with object tracking, prioritization, and target lock")
+logging.info("Starting AI log with enhanced locking and proportional control")
 
 # Define the Region of Interest (ROI) based on your observations
 x, y = 1000, 450
@@ -21,18 +21,19 @@ template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
 # Drop threshold y-coordinate (items below this y are considered caught)
-drop_threshold_y = y + 955  # Adjusted for better catching
+drop_threshold_y = y + 955
 
 # Minimum distance between items to consider them unique
 MIN_DISTANCE = 50
 
 # Lock threshold to keep the AI focused on a target item once it's close enough to the basket
-LOCK_Y_THRESHOLD = y + 850  # Adjust this based on testing to prevent premature switching
+LOCK_Y_THRESHOLD = y + 850
 
 # Initialize a dictionary to keep track of items with unique IDs
 item_tracker = {}
-next_item_id = 1  # Incremental ID for each new detected item
+next_item_id = 1
 locked_item_id = None  # Holds the ID of the currently locked item
+adaptive_capture_interval = 0.05  # Capture frequency adjustment based on item proximity
 
 def capture_screen():
     """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
@@ -40,13 +41,12 @@ def capture_screen():
     screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
     return cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
-def find_items(screen, template, threshold=0.6):
+def find_items(screen, template, threshold=0.55):
     """Finds all positions of items in the given screen and returns filtered unique positions."""
     result = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
     locations = np.where(result >= threshold)
     positions = [(loc[0] + template_width // 2, loc[1] + template_height // 2) for loc in zip(*locations[::-1])]
     
-    # Filter for unique positions based on minimum distance
     unique_positions = []
     for pos in positions:
         if all(distance.euclidean(pos, uniq_pos) > MIN_DISTANCE for uniq_pos in unique_positions):
@@ -77,7 +77,7 @@ def track_items(detected_positions):
     return updated_tracker
 
 def select_closest_item(tracked_items):
-    """Selects the item closest to the basket to prioritize."""
+    """Selects the item closest to the basket to prioritize, maintaining lock if within threshold."""
     global locked_item_id
     if not tracked_items:
         return None
@@ -87,24 +87,28 @@ def select_closest_item(tracked_items):
         return locked_item_id, tracked_items[locked_item_id]
 
     # Otherwise, select a new closest item by y-coordinate
-    closest_item = min(tracked_items.items(), key=lambda item: item[1][1])  # Min by y-coordinate
+    closest_item = min(tracked_items.items(), key=lambda item: item[1][1])
 
     # Lock onto this item if it’s close enough
     if closest_item[1][1] >= LOCK_Y_THRESHOLD:
         locked_item_id = closest_item[0]
     else:
-        locked_item_id = None  # Reset lock if no item is close enough
+        locked_item_id = None
 
     return closest_item
 
-def move_basket_to_item(item_x):
-    """Moves the basket to the x-coordinate of the item."""
-    basket_x = x + item_x
-    pyautogui.moveTo(basket_x, y + height - 30)
-    logging.info(f"Moved basket to x-position: {basket_x}")
+def move_basket_proportional(item_x, basket_center_x):
+    """Proportionally adjusts basket position based on item's distance from the basket."""
+    proportional_speed = 0.3  # Adjust based on desired responsiveness
+    target_x = x + item_x
+    offset_x = target_x - basket_center_x
+
+    # Move the basket proportional to its distance from the target
+    pyautogui.moveTo(basket_center_x + offset_x * proportional_speed, y + height - 30)
+    logging.info(f"Moved basket to x-position: {basket_center_x + offset_x * proportional_speed}")
 
 def main():
-    logging.info("AI session started for detecting items, tracking, and target lock.")
+    logging.info("AI session started with enhanced locking and proportional basket movement.")
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
 
@@ -118,7 +122,7 @@ def main():
         screen = capture_screen()
 
         # Find unique positions of falling items
-        item_positions = find_items(screen, template, threshold=0.6)
+        item_positions = find_items(screen, template, threshold=0.55)
         
         # Track and update item positions
         global item_tracker
@@ -132,13 +136,20 @@ def main():
             item_id, (item_x, item_y) = closest_item
             logging.info(f"Targeting item ID {item_id} at position {item_x}, {item_y}")
 
-            # Move basket to align with closest item
-            move_basket_to_item(item_x)
+            # Determine the center position of the basket
+            basket_center_x, _ = pyautogui.position()
+            
+            # Move the basket to align with the closest item using proportional control
+            move_basket_proportional(item_x, basket_center_x)
+
+            # Adaptive capture interval adjustment
+            global adaptive_capture_interval
+            adaptive_capture_interval = 0.03 if item_y >= LOCK_Y_THRESHOLD else 0.05
         else:
             logging.info("No items detected or all items out of range.")
 
-        # Pause briefly to avoid high CPU usage
-        time.sleep(0.03)
+        # Pause based on adaptive capture frequency
+        time.sleep(adaptive_capture_interval)
 
 if __name__ == "__main__":
     main()
