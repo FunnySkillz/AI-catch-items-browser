@@ -1,0 +1,33 @@
+2024-11-11 19:46:12,445 - INFO - Starting AI debug log for screen capture and item detection
+2024-11-11 19:46:12,448 - INFO - Template loaded with dimensions: 97x280
+2024-11-11 19:46:12,448 - INFO - Starting main testing section.
+2024-11-11 19:46:12,448 - INFO - Capturing the screen within the defined ROI.
+2024-11-11 19:46:12,757 - INFO - Screen captured and converted to grayscale.
+2024-11-11 19:46:13,424 - INFO - Displayed captured screen for visual verification.
+2024-11-11 19:46:13,424 - INFO - Starting template matching to detect items.
+2024-11-11 19:46:13,542 - INFO - Detected 0 items with threshold >= 0.6.
+2024-11-11 19:46:13,543 - DEBUG - Sorted item positions by y-coordinate: []
+2024-11-11 19:46:13,544 - INFO - Detected item positions: []
+2024-11-11 19:46:13,608 - INFO - Closed all OpenCV windows.
+2024-11-11 19:47:17,886 - INFO - Starting AI debug log for screen capture and item detection
+2024-11-11 19:47:17,888 - INFO - Template loaded with dimensions: 97x280
+2024-11-11 19:47:17,888 - INFO - Starting main testing section.
+2024-11-11 19:47:17,888 - INFO - Capturing the screen within the defined ROI.
+2024-11-11 19:47:18,107 - INFO - Screen captured and converted to grayscale.
+2024-11-11 19:47:18,675 - INFO - Displayed captured screen for visual verification.
+2024-11-11 19:47:18,675 - INFO - Starting template matching to detect items.
+2024-11-11 19:47:18,795 - INFO - Detected 0 items with threshold >= 0.6.
+2024-11-11 19:47:18,795 - DEBUG - Sorted item positions by y-coordinate: []
+2024-11-11 19:47:18,795 - INFO - Detected item positions: []
+2024-11-11 19:47:18,837 - INFO - Closed all OpenCV windows.
+2024-11-11 19:47:33,418 - INFO - Starting AI debug log for screen capture and item detection
+2024-11-11 19:47:33,423 - INFO - Template loaded with dimensions: 97x280
+2024-11-11 19:47:33,424 - INFO - Starting main testing section.
+2024-11-11 19:47:33,424 - INFO - Capturing the screen within the defined ROI.
+2024-11-11 19:47:33,853 - INFO - Screen captured and converted to grayscale.
+2024-11-11 19:47:34,500 - INFO - Displayed captured screen for visual verification.
+2024-11-11 19:47:34,500 - INFO - Starting template matching to detect items.
+2024-11-11 19:47:34,778 - INFO - Detected 32 items with threshold >= 0.6.
+2024-11-11 19:47:34,778 - DEBUG - Sorted item positions by y-coordinate: [(np.int64(584), np.int64(159)), (np.int64(585), np.int64(159)), (np.int64(586), np.int64(159)), (np.int64(584), np.int64(160)), (np.int64(585), np.int64(160)), (np.int64(771), np.int64(211)), (np.int64(772), np.int64(211)), (np.int64(773), np.int64(211)), (np.int64(770), np.int64(212)), (np.int64(771), np.int64(212)), (np.int64(772), np.int64(212)), (np.int64(773), np.int64(212)), (np.int64(774), np.int64(212)), (np.int64(770), np.int64(213)), (np.int64(771), np.int64(213)), (np.int64(772), np.int64(213)), (np.int64(773), np.int64(213)), (np.int64(774), np.int64(213)), (np.int64(775), np.int64(213)), (np.int64(770), np.int64(214)), (np.int64(771), np.int64(214)), (np.int64(772), np.int64(214)), (np.int64(773), np.int64(214)), (np.int64(774), np.int64(214)), (np.int64(770), np.int64(215)), (np.int64(771), np.int64(215)), (np.int64(772), np.int64(215)), (np.int64(773), np.int64(215)), (np.int64(774), np.int64(215)), (np.int64(771), np.int64(216)), (np.int64(772), np.int64(216)), (np.int64(773), np.int64(216))]
+2024-11-11 19:47:34,782 - INFO - Detected item positions: [(np.int64(584), np.int64(159)), (np.int64(585), np.int64(159)), (np.int64(586), np.int64(159)), (np.int64(584), np.int64(160)), (np.int64(585), np.int64(160)), (np.int64(771), np.int64(211)), (np.int64(772), np.int64(211)), (np.int64(773), np.int64(211)), (np.int64(770), np.int64(212)), (np.int64(771), np.int64(212)), (np.int64(772), np.int64(212)), (np.int64(773), np.int64(212)), (np.int64(774), np.int64(212)), (np.int64(770), np.int64(213)), (np.int64(771), np.int64(213)), (np.int64(772), np.int64(213)), (np.int64(773), np.int64(213)), (np.int64(774), np.int64(213)), (np.int64(775), np.int64(213)), (np.int64(770), np.int64(214)), (np.int64(771), np.int64(214)), (np.int64(772), np.int64(214)), (np.int64(773), np.int64(214)), (np.int64(774), np.int64(214)), (np.int64(770), np.int64(215)), (np.int64(771), np.int64(215)), (np.int64(772), np.int64(215)), (np.int64(773), np.int64(215)), (np.int64(774), np.int64(215)), (np.int64(771), np.int64(216)), (np.int64(772), np.int64(216)), (np.int64(773), np.int64(216))]
+2024-11-11 19:47:34,866 - INFO - Closed all OpenCV windows.

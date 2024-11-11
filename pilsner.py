@@ -25,7 +25,7 @@ drop_threshold_y = y + 950
 collection_lock_y = y + 900
 
 # Time to focus on a target before considering a new one
-target_lock_duration = 0.1
+target_lock_duration = 0.05  # Reduced to improve responsiveness
 
 def capture_screen():
     """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
@@ -62,15 +62,14 @@ def main():
             cv2.destroyAllWindows()
             break
 
-        # Capture screen less frequently to optimize performance
-        time.sleep(target_lock_duration)
+        # Capture screen to locate items
         screen = capture_screen()
 
         # Find positions of falling items
         item_positions = find_items(screen, template, threshold=0.6)
         
         if item_positions:
-            # Select the closest item within the focus zone
+            # Lock onto the closest item within collection range
             if current_target is None or current_target[1] >= collection_lock_y:
                 current_target = item_positions[0]
                 logging.info(f"New target acquired at {current_target}")
@@ -87,6 +86,8 @@ def main():
         else:
             logging.debug("No items detected.")
             current_target = None  # Reset target if no items are detected
+
+        time.sleep(target_lock_duration)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,113 @@
+2024-11-11 19:25:25,055 - INFO - Starting AI log for game session
+2024-11-11 19:25:25,091 - INFO - AI session started.
+2024-11-11 19:25:28,520 - DEBUG - No items detected.
+2024-11-11 19:25:29,020 - INFO - New target acquired at (np.int64(624), np.int64(379))
+2024-11-11 19:25:31,850 - DEBUG - No items detected.
+2024-11-11 19:25:32,547 - INFO - New target acquired at (np.int64(883), np.int64(313))
+2024-11-11 19:25:33,884 - DEBUG - No items detected.
+2024-11-11 19:25:34,572 - INFO - New target acquired at (np.int64(683), np.int64(295))
+2024-11-11 19:25:35,877 - DEBUG - No items detected.
+2024-11-11 19:25:36,489 - DEBUG - No items detected.
+2024-11-11 19:25:37,256 - INFO - New target acquired at (np.int64(484), np.int64(319))
+2024-11-11 19:25:39,840 - DEBUG - No items detected.
+2024-11-11 19:25:40,501 - INFO - New target acquired at (np.int64(892), np.int64(207))
+2024-11-11 19:25:41,126 - DEBUG - No items detected.
+2024-11-11 19:25:42,106 - DEBUG - No items detected.
+2024-11-11 19:25:42,509 - DEBUG - No items detected.
+2024-11-11 19:25:42,954 - DEBUG - No items detected.
+2024-11-11 19:25:43,344 - DEBUG - No items detected.
+2024-11-11 19:25:43,753 - DEBUG - No items detected.
+2024-11-11 19:25:44,174 - DEBUG - No items detected.
+2024-11-11 19:25:44,524 - DEBUG - No items detected.
+2024-11-11 19:25:44,954 - DEBUG - No items detected.
+2024-11-11 19:25:45,344 - DEBUG - No items detected.
+2024-11-11 19:25:45,762 - DEBUG - No items detected.
+2024-11-11 19:25:46,136 - DEBUG - No items detected.
+2024-11-11 19:25:46,557 - DEBUG - No items detected.
+2024-11-11 19:25:46,946 - DEBUG - No items detected.
+2024-11-11 19:25:47,309 - DEBUG - No items detected.
+2024-11-11 19:25:47,711 - DEBUG - No items detected.
+2024-11-11 19:25:48,151 - DEBUG - No items detected.
+2024-11-11 19:25:48,505 - DEBUG - No items detected.
+2024-11-11 19:25:48,923 - DEBUG - No items detected.
+2024-11-11 19:25:49,311 - DEBUG - No items detected.
+2024-11-11 19:25:49,737 - DEBUG - No items detected.
+2024-11-11 19:25:50,119 - DEBUG - No items detected.
+2024-11-11 19:25:50,529 - DEBUG - No items detected.
+2024-11-11 19:25:50,857 - DEBUG - No items detected.
+2024-11-11 19:25:51,305 - DEBUG - No items detected.
+2024-11-11 19:25:51,681 - DEBUG - No items detected.
+2024-11-11 19:25:51,681 - INFO - Exiting...
+2024-11-11 19:27:51,498 - INFO - Starting AI log for game session
+2024-11-11 19:27:51,501 - INFO - AI session started.
+2024-11-11 19:27:54,872 - DEBUG - No items detected.
+2024-11-11 19:27:55,394 - DEBUG - No items detected.
+2024-11-11 19:27:55,927 - DEBUG - No items detected.
+2024-11-11 19:27:56,592 - DEBUG - No items detected.
+2024-11-11 19:27:57,122 - INFO - New target acquired at (np.int64(481), np.int64(319))
+2024-11-11 19:28:05,403 - DEBUG - No items detected.
+2024-11-11 19:28:06,066 - DEBUG - No items detected.
+2024-11-11 19:28:06,854 - DEBUG - No items detected.
+2024-11-11 19:28:07,209 - DEBUG - No items detected.
+2024-11-11 19:28:07,520 - DEBUG - No items detected.
+2024-11-11 19:28:07,881 - DEBUG - No items detected.
+2024-11-11 19:28:08,232 - DEBUG - No items detected.
+2024-11-11 19:28:08,607 - DEBUG - No items detected.
+2024-11-11 19:28:08,942 - DEBUG - No items detected.
+2024-11-11 19:28:09,325 - DEBUG - No items detected.
+2024-11-11 19:28:09,376 - INFO - Exiting...
+2024-11-11 19:29:23,488 - INFO - Starting AI log for game session
+2024-11-11 19:29:23,491 - INFO - AI session started.
+2024-11-11 19:29:26,812 - DEBUG - No items detected.
+2024-11-11 19:29:27,479 - DEBUG - No items detected.
+2024-11-11 19:29:28,043 - DEBUG - No items detected.
+2024-11-11 19:29:28,570 - DEBUG - No items detected.
+2024-11-11 19:29:29,118 - INFO - New target acquired at (np.int64(1092), np.int64(522))
+2024-11-11 19:29:32,677 - DEBUG - No items detected.
+2024-11-11 19:29:33,365 - DEBUG - No items detected.
+2024-11-11 19:29:33,989 - DEBUG - No items detected.
+2024-11-11 19:29:34,616 - DEBUG - No items detected.
+2024-11-11 19:29:35,313 - INFO - New target acquired at (np.int64(1011), np.int64(488))
+2024-11-11 19:29:40,768 - DEBUG - No items detected.
+2024-11-11 19:29:41,534 - DEBUG - No items detected.
+2024-11-11 19:29:42,341 - DEBUG - No items detected.
+2024-11-11 19:29:43,014 - DEBUG - No items detected.
+2024-11-11 19:29:43,412 - DEBUG - No items detected.
+2024-11-11 19:29:43,718 - DEBUG - No items detected.
+2024-11-11 19:29:44,090 - DEBUG - No items detected.
+2024-11-11 19:29:44,488 - DEBUG - No items detected.
+2024-11-11 19:29:44,852 - DEBUG - No items detected.
+2024-11-11 19:29:45,183 - DEBUG - No items detected.
+2024-11-11 19:29:45,585 - DEBUG - No items detected.
+2024-11-11 19:29:45,932 - DEBUG - No items detected.
+2024-11-11 19:29:46,311 - DEBUG - No items detected.
+2024-11-11 19:29:46,758 - DEBUG - No items detected.
+2024-11-11 19:29:47,165 - DEBUG - No items detected.
+2024-11-11 19:29:47,512 - DEBUG - No items detected.
+2024-11-11 19:29:47,887 - DEBUG - No items detected.
+2024-11-11 19:29:48,209 - DEBUG - No items detected.
+2024-11-11 19:29:48,623 - DEBUG - No items detected.
+2024-11-11 19:29:48,943 - DEBUG - No items detected.
+2024-11-11 19:29:49,274 - DEBUG - No items detected.
+2024-11-11 19:29:49,663 - DEBUG - No items detected.
+2024-11-11 19:29:50,053 - DEBUG - No items detected.
+2024-11-11 19:29:50,459 - DEBUG - No items detected.
+2024-11-11 19:29:50,759 - DEBUG - No items detected.
+2024-11-11 19:29:51,197 - DEBUG - No items detected.
+2024-11-11 19:29:51,514 - DEBUG - No items detected.
+2024-11-11 19:29:51,889 - DEBUG - No items detected.
+2024-11-11 19:29:52,262 - DEBUG - No items detected.
+2024-11-11 19:29:52,601 - DEBUG - No items detected.
+2024-11-11 19:29:52,932 - DEBUG - No items detected.
+2024-11-11 19:29:53,235 - DEBUG - No items detected.
+2024-11-11 19:29:53,581 - DEBUG - No items detected.
+2024-11-11 19:29:53,971 - DEBUG - No items detected.
+2024-11-11 19:29:54,340 - DEBUG - No items detected.
+2024-11-11 19:29:54,671 - DEBUG - No items detected.
+2024-11-11 19:29:55,033 - DEBUG - No items detected.
+2024-11-11 19:29:55,360 - DEBUG - No items detected.
+2024-11-11 19:29:55,739 - DEBUG - No items detected.
+2024-11-11 19:29:56,128 - DEBUG - No items detected.
+2024-11-11 19:29:56,541 - DEBUG - No items detected.
+2024-11-11 19:29:57,274 - DEBUG - No items detected.
+2024-11-11 19:29:57,792 - DEBUG - No items detected.
