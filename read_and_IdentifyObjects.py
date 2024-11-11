@@ -8,7 +8,7 @@ from scipy.spatial import distance
 
 # Configure detailed logging
 logging.basicConfig(filename="game_log.txt", level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
-logging.info("Starting AI log with detailed tracking and decision logging")
+logging.info("Starting AI log with direct movement implementation")
 
 # Define the Region of Interest (ROI)
 x, y = 1000, 450
@@ -101,18 +101,14 @@ def select_closest_item(tracked_items):
 
     return closest_item
 
-def move_basket_proportional(item_x, basket_center_x):
-    """Proportionally adjusts basket position based on item's distance from the basket."""
-    proportional_speed = 0.3  # Adjust based on desired responsiveness
-    target_x = x + item_x
-    offset_x = target_x - basket_center_x
-
-    # Move the basket proportional to its distance from the target
-    pyautogui.moveTo(basket_center_x + offset_x * proportional_speed, y + height - 30)
-    logging.info(f"Moved basket to x-position: {basket_center_x + offset_x * proportional_speed}")
+def move_basket_direct(item_x):
+    """Moves the basket directly to the x-coordinate of the item."""
+    basket_x = x + item_x
+    pyautogui.moveTo(basket_x, y + height - 30)
+    logging.info(f"Moved basket directly to x-position: {basket_x}")
 
 def main():
-    logging.info("AI session started with detailed logging of decisions and actions.")
+    logging.info("AI session started with direct movement approach for the basket.")
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
 
@@ -138,12 +134,9 @@ def main():
         if closest_item:
             item_id, (item_x, item_y) = closest_item
             logging.info(f"Targeting item ID {item_id} at position {item_x}, {item_y}")
-
-            # Determine the center position of the basket
-            basket_center_x, _ = pyautogui.position()
             
-            # Move the basket to align with the closest item using proportional control
-            move_basket_proportional(item_x, basket_center_x)
+            # Move the basket directly to align with the closest item
+            move_basket_direct(item_x)
 
             # Adaptive capture interval adjustment
             global adaptive_capture_interval

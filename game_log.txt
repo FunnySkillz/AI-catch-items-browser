@@ -1,389 +1,281 @@
-2024-11-11 21:33:51,590 - INFO - Starting AI log with object tracking, prioritization, and target lock
-2024-11-11 21:33:51,593 - INFO - AI session started for detecting items, tracking, and target lock.
-2024-11-11 21:33:54,142 - DEBUG - Unique detected item positions: [(np.int64(1047), np.int64(358))]
-2024-11-11 21:33:54,143 - INFO - New item detected with ID: 1 at (np.int64(1047), np.int64(358))
-2024-11-11 21:33:54,143 - INFO - Tracked items: {1: (np.int64(1047), np.int64(358))}
-2024-11-11 21:33:54,143 - INFO - Targeting item ID 1 at position 1047, 358
-2024-11-11 21:33:54,256 - INFO - Moved basket to x-position: 2047
-2024-11-11 21:33:54,594 - DEBUG - Unique detected item positions: [(np.int64(1046), np.int64(502))]
-2024-11-11 21:33:54,596 - INFO - New item detected with ID: 2 at (np.int64(1046), np.int64(502))
-2024-11-11 21:33:54,596 - INFO - Tracked items: {2: (np.int64(1046), np.int64(502))}
-2024-11-11 21:33:54,596 - INFO - Targeting item ID 2 at position 1046, 502
-2024-11-11 21:33:54,711 - INFO - Moved basket to x-position: 2046
-2024-11-11 21:33:55,065 - DEBUG - Unique detected item positions: [(np.int64(1046), np.int64(637))]
-2024-11-11 21:33:55,066 - INFO - New item detected with ID: 3 at (np.int64(1046), np.int64(637))
-2024-11-11 21:33:55,067 - INFO - Tracked items: {3: (np.int64(1046), np.int64(637))}
-2024-11-11 21:33:55,067 - INFO - Targeting item ID 3 at position 1046, 637
-2024-11-11 21:33:55,171 - INFO - Moved basket to x-position: 2046
-2024-11-11 21:33:55,472 - DEBUG - Unique detected item positions: [(np.int64(623), np.int64(164))]
-2024-11-11 21:33:55,475 - INFO - New item detected with ID: 4 at (np.int64(623), np.int64(164))
-2024-11-11 21:33:55,476 - INFO - Tracked items: {4: (np.int64(623), np.int64(164))}
-2024-11-11 21:33:55,476 - INFO - Targeting item ID 4 at position 623, 164
-2024-11-11 21:33:55,582 - INFO - Moved basket to x-position: 1623
-2024-11-11 21:33:55,913 - DEBUG - Unique detected item positions: [(np.int64(623), np.int64(283))]
-2024-11-11 21:33:55,914 - INFO - New item detected with ID: 5 at (np.int64(623), np.int64(283))
-2024-11-11 21:33:55,914 - INFO - Tracked items: {5: (np.int64(623), np.int64(283))}
-2024-11-11 21:33:55,914 - INFO - Targeting item ID 5 at position 623, 283
-2024-11-11 21:33:56,026 - INFO - Moved basket to x-position: 1623
-2024-11-11 21:33:56,335 - DEBUG - Unique detected item positions: [(np.int64(624), np.int64(415))]
-2024-11-11 21:33:56,335 - INFO - New item detected with ID: 6 at (np.int64(624), np.int64(415))
-2024-11-11 21:33:56,336 - INFO - Tracked items: {6: (np.int64(624), np.int64(415))}
-2024-11-11 21:33:56,336 - INFO - Targeting item ID 6 at position 624, 415
-2024-11-11 21:33:56,437 - INFO - Moved basket to x-position: 1624
-2024-11-11 21:33:56,776 - DEBUG - Unique detected item positions: [(np.int64(1067), np.int64(424)), (np.int64(623), np.int64(548))]
-2024-11-11 21:33:56,777 - INFO - New item detected with ID: 7 at (np.int64(1067), np.int64(424))
-2024-11-11 21:33:56,777 - INFO - New item detected with ID: 8 at (np.int64(623), np.int64(548))
-2024-11-11 21:33:56,777 - INFO - Tracked items: {7: (np.int64(1067), np.int64(424)), 8: (np.int64(623), np.int64(548))}
-2024-11-11 21:33:56,777 - INFO - Targeting item ID 7 at position 1067, 424
-2024-11-11 21:33:56,881 - INFO - Moved basket to x-position: 2067
-2024-11-11 21:33:57,236 - DEBUG - Unique detected item positions: [(np.int64(1068), np.int64(624)), (np.int64(623), np.int64(682))]
-2024-11-11 21:33:57,238 - INFO - New item detected with ID: 9 at (np.int64(1068), np.int64(624))
-2024-11-11 21:33:57,238 - INFO - New item detected with ID: 10 at (np.int64(623), np.int64(682))
-2024-11-11 21:33:57,238 - INFO - Tracked items: {9: (np.int64(1068), np.int64(624)), 10: (np.int64(623), np.int64(682))}
-2024-11-11 21:33:57,239 - INFO - Targeting item ID 9 at position 1068, 624
-2024-11-11 21:33:57,350 - INFO - Moved basket to x-position: 2068
-2024-11-11 21:33:57,730 - DEBUG - Unique detected item positions: [(np.int64(623), np.int64(829))]
-2024-11-11 21:33:57,731 - INFO - New item detected with ID: 11 at (np.int64(623), np.int64(829))
-2024-11-11 21:33:57,732 - INFO - Tracked items: {11: (np.int64(623), np.int64(829))}
-2024-11-11 21:33:57,732 - INFO - Targeting item ID 11 at position 623, 829
-2024-11-11 21:33:57,841 - INFO - Moved basket to x-position: 1623
-2024-11-11 21:33:58,175 - DEBUG - Unique detected item positions: []
-2024-11-11 21:33:58,175 - INFO - Tracked items: {}
-2024-11-11 21:33:58,175 - INFO - No items detected or all items out of range.
-2024-11-11 21:33:58,479 - DEBUG - Unique detected item positions: []
-2024-11-11 21:33:58,480 - INFO - Tracked items: {}
-2024-11-11 21:33:58,480 - INFO - No items detected or all items out of range.
-2024-11-11 21:33:58,822 - DEBUG - Unique detected item positions: []
-2024-11-11 21:33:58,822 - INFO - Tracked items: {}
-2024-11-11 21:33:58,823 - INFO - No items detected or all items out of range.
-2024-11-11 21:33:59,185 - DEBUG - Unique detected item positions: []
-2024-11-11 21:33:59,186 - INFO - Tracked items: {}
-2024-11-11 21:33:59,187 - INFO - No items detected or all items out of range.
-2024-11-11 21:33:59,512 - DEBUG - Unique detected item positions: [(np.int64(872), np.int64(259))]
-2024-11-11 21:33:59,512 - INFO - New item detected with ID: 12 at (np.int64(872), np.int64(259))
-2024-11-11 21:33:59,513 - INFO - Tracked items: {12: (np.int64(872), np.int64(259))}
-2024-11-11 21:33:59,513 - INFO - Targeting item ID 12 at position 872, 259
-2024-11-11 21:33:59,627 - INFO - Moved basket to x-position: 1872
-2024-11-11 21:33:59,974 - DEBUG - Unique detected item positions: [(np.int64(871), np.int64(476))]
-2024-11-11 21:33:59,975 - INFO - New item detected with ID: 13 at (np.int64(871), np.int64(476))
-2024-11-11 21:33:59,975 - INFO - Tracked items: {13: (np.int64(871), np.int64(476))}
-2024-11-11 21:33:59,975 - INFO - Targeting item ID 13 at position 871, 476
-2024-11-11 21:34:00,087 - INFO - Moved basket to x-position: 1871
-2024-11-11 21:34:00,436 - DEBUG - Unique detected item positions: [(np.int64(871), np.int64(677))]
-2024-11-11 21:34:00,438 - INFO - New item detected with ID: 14 at (np.int64(871), np.int64(677))
-2024-11-11 21:34:00,438 - INFO - Tracked items: {14: (np.int64(871), np.int64(677))}
-2024-11-11 21:34:00,438 - INFO - Targeting item ID 14 at position 871, 677
-2024-11-11 21:34:00,546 - INFO - Moved basket to x-position: 1871
-2024-11-11 21:34:00,925 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:00,926 - INFO - Tracked items: {}
-2024-11-11 21:34:00,926 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:01,304 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:01,305 - INFO - Tracked items: {}
-2024-11-11 21:34:01,305 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:01,686 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:01,688 - INFO - Tracked items: {}
-2024-11-11 21:34:01,688 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:02,113 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:02,114 - INFO - Tracked items: {}
-2024-11-11 21:34:02,114 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:02,604 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:02,606 - INFO - Tracked items: {}
-2024-11-11 21:34:02,607 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:02,925 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:02,926 - INFO - Tracked items: {}
-2024-11-11 21:34:02,926 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:03,165 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:03,166 - INFO - Tracked items: {}
-2024-11-11 21:34:03,166 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:03,382 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:03,382 - INFO - Tracked items: {}
-2024-11-11 21:34:03,382 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:03,629 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:03,630 - INFO - Tracked items: {}
-2024-11-11 21:34:03,630 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:03,897 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:03,898 - INFO - Tracked items: {}
-2024-11-11 21:34:03,898 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:04,147 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:04,148 - INFO - Tracked items: {}
-2024-11-11 21:34:04,148 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:04,193 - INFO - Exiting...
-2024-11-11 21:34:38,390 - INFO - Starting AI log with object tracking, prioritization, and target lock
-2024-11-11 21:34:38,393 - INFO - AI session started for detecting items, tracking, and target lock.
-2024-11-11 21:34:40,919 - DEBUG - Unique detected item positions: [(np.int64(989), np.int64(286))]
-2024-11-11 21:34:40,919 - INFO - New item detected with ID: 1 at (np.int64(989), np.int64(286))
-2024-11-11 21:34:40,919 - INFO - Tracked items: {1: (np.int64(989), np.int64(286))}
-2024-11-11 21:34:40,919 - INFO - Targeting item ID 1 at position 989, 286
-2024-11-11 21:34:41,023 - INFO - Moved basket to x-position: 1989
-2024-11-11 21:34:41,344 - DEBUG - Unique detected item positions: [(np.int64(990), np.int64(416))]
-2024-11-11 21:34:41,346 - INFO - New item detected with ID: 2 at (np.int64(990), np.int64(416))
-2024-11-11 21:34:41,346 - INFO - Tracked items: {2: (np.int64(990), np.int64(416))}
-2024-11-11 21:34:41,346 - INFO - Targeting item ID 2 at position 990, 416
-2024-11-11 21:34:41,453 - INFO - Moved basket to x-position: 1990
-2024-11-11 21:34:41,789 - DEBUG - Unique detected item positions: [(np.int64(989), np.int64(537))]
-2024-11-11 21:34:41,791 - INFO - New item detected with ID: 3 at (np.int64(989), np.int64(537))
-2024-11-11 21:34:41,791 - INFO - Tracked items: {3: (np.int64(989), np.int64(537))}
-2024-11-11 21:34:41,792 - INFO - Targeting item ID 3 at position 989, 537
-2024-11-11 21:34:41,907 - INFO - Moved basket to x-position: 1989
-2024-11-11 21:34:42,239 - DEBUG - Unique detected item positions: [(np.int64(990), np.int64(685))]
-2024-11-11 21:34:42,240 - INFO - New item detected with ID: 4 at (np.int64(990), np.int64(685))
-2024-11-11 21:34:42,240 - INFO - Tracked items: {4: (np.int64(990), np.int64(685))}
-2024-11-11 21:34:42,240 - INFO - Targeting item ID 4 at position 990, 685
-2024-11-11 21:34:42,346 - INFO - Moved basket to x-position: 1990
-2024-11-11 21:34:42,675 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:42,678 - INFO - Tracked items: {}
-2024-11-11 21:34:42,678 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:43,124 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:43,125 - INFO - Tracked items: {}
-2024-11-11 21:34:43,125 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:43,432 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:43,435 - INFO - Tracked items: {}
-2024-11-11 21:34:43,436 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:43,753 - DEBUG - Unique detected item positions: [(np.int64(421), np.int64(292))]
-2024-11-11 21:34:43,753 - INFO - New item detected with ID: 5 at (np.int64(421), np.int64(292))
-2024-11-11 21:34:43,753 - INFO - Tracked items: {5: (np.int64(421), np.int64(292))}
-2024-11-11 21:34:43,753 - INFO - Targeting item ID 5 at position 421, 292
-2024-11-11 21:34:43,857 - INFO - Moved basket to x-position: 1421
-2024-11-11 21:34:44,205 - DEBUG - Unique detected item positions: [(np.int64(420), np.int64(443))]
-2024-11-11 21:34:44,206 - INFO - New item detected with ID: 6 at (np.int64(420), np.int64(443))
-2024-11-11 21:34:44,206 - INFO - Tracked items: {6: (np.int64(420), np.int64(443))}
-2024-11-11 21:34:44,206 - INFO - Targeting item ID 6 at position 420, 443
-2024-11-11 21:34:44,311 - INFO - Moved basket to x-position: 1420
-2024-11-11 21:34:44,623 - DEBUG - Unique detected item positions: [(np.int64(1043), np.int64(429)), (np.int64(420), np.int64(624))]
-2024-11-11 21:34:44,624 - INFO - New item detected with ID: 7 at (np.int64(1043), np.int64(429))
-2024-11-11 21:34:44,625 - INFO - New item detected with ID: 8 at (np.int64(420), np.int64(624))
-2024-11-11 21:34:44,626 - INFO - Tracked items: {7: (np.int64(1043), np.int64(429)), 8: (np.int64(420), np.int64(624))}
-2024-11-11 21:34:44,626 - INFO - Targeting item ID 7 at position 1043, 429
-2024-11-11 21:34:44,736 - INFO - Moved basket to x-position: 2043
-2024-11-11 21:34:45,084 - DEBUG - Unique detected item positions: [(np.int64(1043), np.int64(550)), (np.int64(421), np.int64(779))]
-2024-11-11 21:34:45,084 - INFO - New item detected with ID: 9 at (np.int64(1043), np.int64(550))
-2024-11-11 21:34:45,085 - INFO - New item detected with ID: 10 at (np.int64(421), np.int64(779))
-2024-11-11 21:34:45,085 - INFO - Tracked items: {9: (np.int64(1043), np.int64(550)), 10: (np.int64(421), np.int64(779))}
-2024-11-11 21:34:45,085 - INFO - Targeting item ID 9 at position 1043, 550
-2024-11-11 21:34:45,189 - INFO - Moved basket to x-position: 2043
-2024-11-11 21:34:45,496 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:45,497 - INFO - Tracked items: {}
-2024-11-11 21:34:45,497 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:45,841 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:45,842 - INFO - Tracked items: {}
-2024-11-11 21:34:45,842 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:46,223 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:46,225 - INFO - Tracked items: {}
-2024-11-11 21:34:46,225 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:46,653 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:46,653 - INFO - Tracked items: {}
-2024-11-11 21:34:46,653 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:47,050 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:47,050 - INFO - Tracked items: {}
-2024-11-11 21:34:47,051 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:47,402 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:47,403 - INFO - Tracked items: {}
-2024-11-11 21:34:47,403 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:47,857 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:47,858 - INFO - Tracked items: {}
-2024-11-11 21:34:47,858 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:48,284 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:48,285 - INFO - Tracked items: {}
-2024-11-11 21:34:48,286 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:48,796 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:48,797 - INFO - Tracked items: {}
-2024-11-11 21:34:48,797 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:49,280 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:49,281 - INFO - Tracked items: {}
-2024-11-11 21:34:49,281 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:49,595 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:49,597 - INFO - Tracked items: {}
-2024-11-11 21:34:49,597 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:49,945 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:49,946 - INFO - Tracked items: {}
-2024-11-11 21:34:49,947 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:50,303 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:50,304 - INFO - Tracked items: {}
-2024-11-11 21:34:50,305 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:50,639 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:50,640 - INFO - Tracked items: {}
-2024-11-11 21:34:50,640 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:50,997 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:50,997 - INFO - Tracked items: {}
-2024-11-11 21:34:50,997 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:51,395 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:51,396 - INFO - Tracked items: {}
-2024-11-11 21:34:51,397 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:51,752 - DEBUG - Unique detected item positions: [(np.int64(681), np.int64(169))]
-2024-11-11 21:34:51,753 - INFO - New item detected with ID: 11 at (np.int64(681), np.int64(169))
-2024-11-11 21:34:51,753 - INFO - Tracked items: {11: (np.int64(681), np.int64(169))}
-2024-11-11 21:34:51,753 - INFO - Targeting item ID 11 at position 681, 169
-2024-11-11 21:34:51,864 - INFO - Moved basket to x-position: 1681
-2024-11-11 21:34:52,234 - DEBUG - Unique detected item positions: [(np.int64(680), np.int64(386))]
-2024-11-11 21:34:52,234 - INFO - New item detected with ID: 12 at (np.int64(680), np.int64(386))
-2024-11-11 21:34:52,234 - INFO - Tracked items: {12: (np.int64(680), np.int64(386))}
-2024-11-11 21:34:52,234 - INFO - Targeting item ID 12 at position 680, 386
-2024-11-11 21:34:52,337 - INFO - Moved basket to x-position: 1680
-2024-11-11 21:34:52,692 - DEBUG - Unique detected item positions: [(np.int64(680), np.int64(584))]
-2024-11-11 21:34:52,694 - INFO - New item detected with ID: 13 at (np.int64(680), np.int64(584))
-2024-11-11 21:34:52,694 - INFO - Tracked items: {13: (np.int64(680), np.int64(584))}
-2024-11-11 21:34:52,695 - INFO - Targeting item ID 13 at position 680, 584
-2024-11-11 21:34:52,807 - INFO - Moved basket to x-position: 1680
-2024-11-11 21:34:53,150 - DEBUG - Unique detected item positions: [(np.int64(717), np.int64(283)), (np.int64(681), np.int64(804))]
-2024-11-11 21:34:53,150 - INFO - New item detected with ID: 14 at (np.int64(717), np.int64(283))
-2024-11-11 21:34:53,150 - INFO - New item detected with ID: 15 at (np.int64(681), np.int64(804))
-2024-11-11 21:34:53,150 - INFO - Tracked items: {14: (np.int64(717), np.int64(283)), 15: (np.int64(681), np.int64(804))}
-2024-11-11 21:34:53,150 - INFO - Targeting item ID 14 at position 717, 283
-2024-11-11 21:34:53,252 - INFO - Moved basket to x-position: 1717
-2024-11-11 21:34:53,557 - DEBUG - Unique detected item positions: [(np.int64(996), np.int64(404)), (np.int64(716), np.int64(416))]
-2024-11-11 21:34:53,557 - INFO - New item detected with ID: 16 at (np.int64(996), np.int64(404))
-2024-11-11 21:34:53,557 - INFO - New item detected with ID: 17 at (np.int64(716), np.int64(416))
-2024-11-11 21:34:53,557 - INFO - Tracked items: {16: (np.int64(996), np.int64(404)), 17: (np.int64(716), np.int64(416))}
-2024-11-11 21:34:53,557 - INFO - Targeting item ID 16 at position 996, 404
-2024-11-11 21:34:53,663 - INFO - Moved basket to x-position: 1996
-2024-11-11 21:34:54,038 - DEBUG - Unique detected item positions: [(np.int64(716), np.int64(548)), (np.int64(995), np.int64(604))]
-2024-11-11 21:34:54,039 - INFO - New item detected with ID: 18 at (np.int64(716), np.int64(548))
-2024-11-11 21:34:54,039 - INFO - New item detected with ID: 19 at (np.int64(995), np.int64(604))
-2024-11-11 21:34:54,039 - INFO - Tracked items: {18: (np.int64(716), np.int64(548)), 19: (np.int64(995), np.int64(604))}
-2024-11-11 21:34:54,039 - INFO - Targeting item ID 18 at position 716, 548
-2024-11-11 21:34:54,151 - INFO - Moved basket to x-position: 1716
-2024-11-11 21:34:54,468 - DEBUG - Unique detected item positions: [(np.int64(844), np.int64(188)), (np.int64(717), np.int64(695))]
-2024-11-11 21:34:54,469 - INFO - New item detected with ID: 20 at (np.int64(844), np.int64(188))
-2024-11-11 21:34:54,469 - INFO - New item detected with ID: 21 at (np.int64(717), np.int64(695))
-2024-11-11 21:34:54,469 - INFO - Tracked items: {20: (np.int64(844), np.int64(188)), 21: (np.int64(717), np.int64(695))}
-2024-11-11 21:34:54,470 - INFO - Targeting item ID 20 at position 844, 188
-2024-11-11 21:34:54,579 - INFO - Moved basket to x-position: 1844
-2024-11-11 21:34:54,909 - DEBUG - Unique detected item positions: [(np.int64(844), np.int64(386)), (np.int64(716), np.int64(830))]
-2024-11-11 21:34:54,911 - INFO - New item detected with ID: 22 at (np.int64(844), np.int64(386))
-2024-11-11 21:34:54,912 - INFO - New item detected with ID: 23 at (np.int64(716), np.int64(830))
-2024-11-11 21:34:54,912 - INFO - Tracked items: {22: (np.int64(844), np.int64(386)), 23: (np.int64(716), np.int64(830))}
-2024-11-11 21:34:54,912 - INFO - Targeting item ID 22 at position 844, 386
-2024-11-11 21:34:55,021 - INFO - Moved basket to x-position: 1844
-2024-11-11 21:34:55,315 - DEBUG - Unique detected item positions: [(np.int64(843), np.int64(567))]
-2024-11-11 21:34:55,316 - INFO - New item detected with ID: 24 at (np.int64(843), np.int64(567))
-2024-11-11 21:34:55,316 - INFO - Tracked items: {24: (np.int64(843), np.int64(567))}
-2024-11-11 21:34:55,316 - INFO - Targeting item ID 24 at position 843, 567
-2024-11-11 21:34:55,416 - INFO - Moved basket to x-position: 1843
-2024-11-11 21:34:55,718 - DEBUG - Unique detected item positions: [(np.int64(843), np.int64(750))]
-2024-11-11 21:34:55,718 - INFO - New item detected with ID: 25 at (np.int64(843), np.int64(750))
-2024-11-11 21:34:55,718 - INFO - Tracked items: {25: (np.int64(843), np.int64(750))}
-2024-11-11 21:34:55,718 - INFO - Targeting item ID 25 at position 843, 750
-2024-11-11 21:34:55,828 - INFO - Moved basket to x-position: 1843
-2024-11-11 21:34:56,236 - DEBUG - Unique detected item positions: [(np.int64(979), np.int64(309))]
-2024-11-11 21:34:56,237 - INFO - New item detected with ID: 26 at (np.int64(979), np.int64(309))
-2024-11-11 21:34:56,237 - INFO - Tracked items: {26: (np.int64(979), np.int64(309))}
-2024-11-11 21:34:56,237 - INFO - Targeting item ID 26 at position 979, 309
-2024-11-11 21:34:56,347 - INFO - Moved basket to x-position: 1979
-2024-11-11 21:34:56,724 - DEBUG - Unique detected item positions: [(np.int64(980), np.int64(464))]
-2024-11-11 21:34:56,726 - INFO - New item detected with ID: 27 at (np.int64(980), np.int64(464))
-2024-11-11 21:34:56,726 - INFO - Tracked items: {27: (np.int64(980), np.int64(464))}
-2024-11-11 21:34:56,726 - INFO - Targeting item ID 27 at position 980, 464
-2024-11-11 21:34:56,839 - INFO - Moved basket to x-position: 1980
-2024-11-11 21:34:57,153 - DEBUG - Unique detected item positions: [(np.int64(980), np.int64(611))]
-2024-11-11 21:34:57,153 - INFO - New item detected with ID: 28 at (np.int64(980), np.int64(611))
-2024-11-11 21:34:57,153 - INFO - Tracked items: {28: (np.int64(980), np.int64(611))}
-2024-11-11 21:34:57,153 - INFO - Targeting item ID 28 at position 980, 611
-2024-11-11 21:34:57,264 - INFO - Moved basket to x-position: 1980
-2024-11-11 21:34:57,580 - DEBUG - Unique detected item positions: [(np.int64(1070), np.int64(520))]
-2024-11-11 21:34:57,581 - INFO - New item detected with ID: 29 at (np.int64(1070), np.int64(520))
-2024-11-11 21:34:57,582 - INFO - Tracked items: {29: (np.int64(1070), np.int64(520))}
-2024-11-11 21:34:57,582 - INFO - Targeting item ID 29 at position 1070, 520
-2024-11-11 21:34:57,686 - INFO - Moved basket to x-position: 2070
-2024-11-11 21:34:58,014 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:58,015 - INFO - Tracked items: {}
-2024-11-11 21:34:58,015 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:58,322 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:58,322 - INFO - Tracked items: {}
-2024-11-11 21:34:58,322 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:58,668 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:58,669 - INFO - Tracked items: {}
-2024-11-11 21:34:58,669 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:59,001 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:59,001 - INFO - Tracked items: {}
-2024-11-11 21:34:59,001 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:59,317 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:59,317 - INFO - Tracked items: {}
-2024-11-11 21:34:59,317 - INFO - No items detected or all items out of range.
-2024-11-11 21:34:59,649 - DEBUG - Unique detected item positions: []
-2024-11-11 21:34:59,649 - INFO - Tracked items: {}
-2024-11-11 21:34:59,649 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:00,004 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:00,005 - INFO - Tracked items: {}
-2024-11-11 21:35:00,005 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:00,319 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:00,320 - INFO - Tracked items: {}
-2024-11-11 21:35:00,320 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:00,676 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:00,677 - INFO - Tracked items: {}
-2024-11-11 21:35:00,678 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:01,014 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:01,016 - INFO - Tracked items: {}
-2024-11-11 21:35:01,016 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:01,322 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:01,322 - INFO - Tracked items: {}
-2024-11-11 21:35:01,323 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:01,653 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:01,654 - INFO - Tracked items: {}
-2024-11-11 21:35:01,654 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:02,101 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:02,102 - INFO - Tracked items: {}
-2024-11-11 21:35:02,102 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:02,506 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:02,508 - INFO - Tracked items: {}
-2024-11-11 21:35:02,508 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:02,855 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:02,855 - INFO - Tracked items: {}
-2024-11-11 21:35:02,856 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:03,287 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:03,288 - INFO - Tracked items: {}
-2024-11-11 21:35:03,288 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:03,683 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:03,684 - INFO - Tracked items: {}
-2024-11-11 21:35:03,684 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:04,286 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:04,287 - INFO - Tracked items: {}
-2024-11-11 21:35:04,287 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:04,544 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:04,545 - INFO - Tracked items: {}
-2024-11-11 21:35:04,545 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:04,761 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:04,762 - INFO - Tracked items: {}
-2024-11-11 21:35:04,762 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:04,994 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:04,995 - INFO - Tracked items: {}
-2024-11-11 21:35:04,995 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:05,208 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:05,209 - INFO - Tracked items: {}
-2024-11-11 21:35:05,209 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:05,467 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:05,468 - INFO - Tracked items: {}
-2024-11-11 21:35:05,468 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:05,685 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:05,686 - INFO - Tracked items: {}
-2024-11-11 21:35:05,686 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:05,911 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:05,911 - INFO - Tracked items: {}
-2024-11-11 21:35:05,911 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:06,131 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:06,132 - INFO - Tracked items: {}
-2024-11-11 21:35:06,132 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:06,346 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:06,346 - INFO - Tracked items: {}
-2024-11-11 21:35:06,346 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:06,582 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:06,583 - INFO - Tracked items: {}
-2024-11-11 21:35:06,583 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:06,791 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:06,791 - INFO - Tracked items: {}
-2024-11-11 21:35:06,793 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,027 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:07,028 - INFO - Tracked items: {}
-2024-11-11 21:35:07,028 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,246 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:07,246 - INFO - Tracked items: {}
-2024-11-11 21:35:07,246 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,480 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:07,482 - INFO - Tracked items: {}
-2024-11-11 21:35:07,482 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,707 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:07,708 - INFO - Tracked items: {}
-2024-11-11 21:35:07,708 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,923 - DEBUG - Unique detected item positions: []
-2024-11-11 21:35:07,923 - INFO - Tracked items: {}
-2024-11-11 21:35:07,923 - INFO - No items detected or all items out of range.
-2024-11-11 21:35:07,962 - INFO - Exiting...
+2024-11-11 21:42:44,299 - INFO - Starting AI log with detailed tracking and decision logging
+2024-11-11 21:42:44,300 - INFO - AI session started with detailed logging of decisions and actions.
+2024-11-11 21:42:46,913 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:46,914 - INFO - Updated Tracker: {}
+2024-11-11 21:42:46,914 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:47,292 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:47,295 - INFO - Updated Tracker: {}
+2024-11-11 21:42:47,296 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:47,765 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:47,766 - INFO - Updated Tracker: {}
+2024-11-11 21:42:47,766 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:48,163 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:48,164 - INFO - Updated Tracker: {}
+2024-11-11 21:42:48,164 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:48,538 - DEBUG - Unique detected item positions: [(np.int64(626), np.int64(141))]
+2024-11-11 21:42:48,540 - INFO - New item detected with ID: 1 at (np.int64(626), np.int64(141))
+2024-11-11 21:42:48,540 - INFO - Updated Tracker: {1: (np.int64(626), np.int64(141))}
+2024-11-11 21:42:48,541 - INFO - Targeting item ID 1 at position 626, 141
+2024-11-11 21:42:48,655 - INFO - Moved basket to x-position: 1537.1
+2024-11-11 21:42:49,049 - DEBUG - Unique detected item positions: [(np.int64(626), np.int64(320))]
+2024-11-11 21:42:49,049 - INFO - New item detected with ID: 2 at (np.int64(626), np.int64(320))
+2024-11-11 21:42:49,049 - INFO - Updated Tracker: {2: (np.int64(626), np.int64(320))}
+2024-11-11 21:42:49,050 - INFO - Targeting item ID 2 at position 626, 320
+2024-11-11 21:42:49,163 - INFO - Moved basket to x-position: 1563.7
+2024-11-11 21:42:49,550 - DEBUG - Unique detected item positions: [(np.int64(626), np.int64(516))]
+2024-11-11 21:42:49,551 - INFO - New item detected with ID: 3 at (np.int64(626), np.int64(516))
+2024-11-11 21:42:49,551 - INFO - Updated Tracker: {3: (np.int64(626), np.int64(516))}
+2024-11-11 21:42:49,551 - INFO - Targeting item ID 3 at position 626, 516
+2024-11-11 21:42:49,653 - INFO - Moved basket to x-position: 1581.9
+2024-11-11 21:42:50,022 - DEBUG - Unique detected item positions: [(np.int64(741), np.int64(209)), (np.int64(1017), np.int64(234)), (np.int64(625), np.int64(699))]
+2024-11-11 21:42:50,024 - INFO - New item detected with ID: 4 at (np.int64(741), np.int64(209))
+2024-11-11 21:42:50,024 - INFO - New item detected with ID: 5 at (np.int64(1017), np.int64(234))
+2024-11-11 21:42:50,024 - INFO - New item detected with ID: 6 at (np.int64(625), np.int64(699))
+2024-11-11 21:42:50,025 - INFO - Updated Tracker: {4: (np.int64(741), np.int64(209)), 5: (np.int64(1017), np.int64(234)), 6: (np.int64(625), np.int64(699))}
+2024-11-11 21:42:50,025 - INFO - Targeting item ID 4 at position 741, 209
+2024-11-11 21:42:50,129 - INFO - Moved basket to x-position: 1629.0
+2024-11-11 21:42:50,503 - DEBUG - Unique detected item positions: [(np.int64(742), np.int64(353)), (np.int64(1015), np.int64(412)), (np.int64(626), np.int64(882))]
+2024-11-11 21:42:50,505 - INFO - New item detected with ID: 7 at (np.int64(742), np.int64(353))
+2024-11-11 21:42:50,506 - INFO - New item detected with ID: 8 at (np.int64(1015), np.int64(412))
+2024-11-11 21:42:50,507 - INFO - New item detected with ID: 9 at (np.int64(626), np.int64(882))
+2024-11-11 21:42:50,507 - INFO - Updated Tracker: {7: (np.int64(742), np.int64(353)), 8: (np.int64(1015), np.int64(412)), 9: (np.int64(626), np.int64(882))}
+2024-11-11 21:42:50,507 - INFO - Targeting item ID 7 at position 742, 353
+2024-11-11 21:42:50,619 - INFO - Moved basket to x-position: 1662.9
+2024-11-11 21:42:50,998 - DEBUG - Unique detected item positions: [(np.int64(741), np.int64(510)), (np.int64(1017), np.int64(608))]
+2024-11-11 21:42:50,999 - INFO - New item detected with ID: 10 at (np.int64(741), np.int64(510))
+2024-11-11 21:42:50,999 - INFO - New item detected with ID: 11 at (np.int64(1017), np.int64(608))
+2024-11-11 21:42:50,999 - INFO - Updated Tracker: {10: (np.int64(741), np.int64(510)), 11: (np.int64(1017), np.int64(608))}
+2024-11-11 21:42:50,999 - INFO - Targeting item ID 10 at position 741, 510
+2024-11-11 21:42:51,106 - INFO - Moved basket to x-position: 1685.7
+2024-11-11 21:42:51,514 - DEBUG - Unique detected item positions: [(np.int64(520), np.int64(142)), (np.int64(740), np.int64(656)), (np.int64(1016), np.int64(791))]
+2024-11-11 21:42:51,515 - INFO - New item detected with ID: 12 at (np.int64(520), np.int64(142))
+2024-11-11 21:42:51,515 - INFO - New item detected with ID: 13 at (np.int64(740), np.int64(656))
+2024-11-11 21:42:51,515 - INFO - New item detected with ID: 14 at (np.int64(1016), np.int64(791))
+2024-11-11 21:42:51,516 - INFO - Updated Tracker: {12: (np.int64(520), np.int64(142)), 13: (np.int64(740), np.int64(656)), 14: (np.int64(1016), np.int64(791))}
+2024-11-11 21:42:51,516 - INFO - Targeting item ID 12 at position 520, 142
+2024-11-11 21:42:51,622 - INFO - Moved basket to x-position: 1635.5
+2024-11-11 21:42:52,007 - DEBUG - Unique detected item positions: [(np.int64(813), np.int64(185)), (np.int64(520), np.int64(335)), (np.int64(1134), np.int64(418)), (np.int64(741), np.int64(814))]
+2024-11-11 21:42:52,008 - INFO - New item detected with ID: 15 at (np.int64(813), np.int64(185))
+2024-11-11 21:42:52,008 - INFO - New item detected with ID: 16 at (np.int64(520), np.int64(335))
+2024-11-11 21:42:52,008 - INFO - New item detected with ID: 17 at (np.int64(1134), np.int64(418))
+2024-11-11 21:42:52,008 - INFO - New item detected with ID: 18 at (np.int64(741), np.int64(814))
+2024-11-11 21:42:52,008 - INFO - Updated Tracker: {15: (np.int64(813), np.int64(185)), 16: (np.int64(520), np.int64(335)), 17: (np.int64(1134), np.int64(418)), 18: (np.int64(741), np.int64(814))}
+2024-11-11 21:42:52,008 - INFO - Targeting item ID 15 at position 813, 185
+2024-11-11 21:42:52,109 - INFO - Moved basket to x-position: 1688.4
+2024-11-11 21:42:52,564 - DEBUG - Unique detected item positions: [(np.int64(813), np.int64(366)), (np.int64(520), np.int64(516)), (np.int64(1134), np.int64(563))]
+2024-11-11 21:42:52,565 - INFO - New item detected with ID: 19 at (np.int64(813), np.int64(366))
+2024-11-11 21:42:52,565 - INFO - New item detected with ID: 20 at (np.int64(520), np.int64(516))
+2024-11-11 21:42:52,565 - INFO - New item detected with ID: 21 at (np.int64(1134), np.int64(563))
+2024-11-11 21:42:52,565 - INFO - Updated Tracker: {19: (np.int64(813), np.int64(366)), 20: (np.int64(520), np.int64(516)), 21: (np.int64(1134), np.int64(563))}
+2024-11-11 21:42:52,565 - INFO - Targeting item ID 19 at position 813, 366
+2024-11-11 21:42:52,675 - INFO - Moved basket to x-position: 1725.5
+2024-11-11 21:42:53,126 - DEBUG - Unique detected item positions: [(np.int64(814), np.int64(576)), (np.int64(520), np.int64(729))]
+2024-11-11 21:42:53,127 - INFO - New item detected with ID: 22 at (np.int64(814), np.int64(576))
+2024-11-11 21:42:53,127 - INFO - New item detected with ID: 23 at (np.int64(520), np.int64(729))
+2024-11-11 21:42:53,127 - INFO - Updated Tracker: {22: (np.int64(814), np.int64(576)), 23: (np.int64(520), np.int64(729))}
+2024-11-11 21:42:53,127 - INFO - Targeting item ID 22 at position 814, 576
+2024-11-11 21:42:53,230 - INFO - Moved basket to x-position: 1751.7
+2024-11-11 21:42:53,690 - DEBUG - Unique detected item positions: [(np.int64(813), np.int64(790))]
+2024-11-11 21:42:53,692 - INFO - New item detected with ID: 24 at (np.int64(813), np.int64(790))
+2024-11-11 21:42:53,692 - INFO - Updated Tracker: {24: (np.int64(813), np.int64(790))}
+2024-11-11 21:42:53,692 - INFO - Targeting item ID 24 at position 813, 790
+2024-11-11 21:42:53,793 - INFO - Moved basket to x-position: 1769.6
+2024-11-11 21:42:54,274 - DEBUG - Unique detected item positions: [(np.int64(887), np.int64(221))]
+2024-11-11 21:42:54,275 - INFO - New item detected with ID: 25 at (np.int64(887), np.int64(221))
+2024-11-11 21:42:54,276 - INFO - Updated Tracker: {25: (np.int64(887), np.int64(221))}
+2024-11-11 21:42:54,277 - INFO - Targeting item ID 25 at position 887, 221
+2024-11-11 21:42:54,385 - INFO - Moved basket to x-position: 1804.4
+2024-11-11 21:42:54,894 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:54,895 - INFO - Updated Tracker: {}
+2024-11-11 21:42:54,895 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:55,432 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:55,434 - INFO - Updated Tracker: {}
+2024-11-11 21:42:55,434 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:56,143 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:56,145 - INFO - Updated Tracker: {}
+2024-11-11 21:42:56,145 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:56,556 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:56,557 - INFO - Updated Tracker: {}
+2024-11-11 21:42:56,557 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:56,868 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:56,868 - INFO - Updated Tracker: {}
+2024-11-11 21:42:56,869 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:57,155 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:57,156 - INFO - Updated Tracker: {}
+2024-11-11 21:42:57,156 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:57,470 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:57,470 - INFO - Updated Tracker: {}
+2024-11-11 21:42:57,470 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:57,768 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:57,768 - INFO - Updated Tracker: {}
+2024-11-11 21:42:57,768 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:58,029 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:58,029 - INFO - Updated Tracker: {}
+2024-11-11 21:42:58,029 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:58,332 - DEBUG - Unique detected item positions: []
+2024-11-11 21:42:58,333 - INFO - Updated Tracker: {}
+2024-11-11 21:42:58,333 - INFO - No items detected or all items out of range.
+2024-11-11 21:42:58,396 - INFO - Exiting...
+2024-11-11 21:43:05,544 - INFO - Starting AI log with detailed tracking and decision logging
+2024-11-11 21:43:05,545 - INFO - AI session started with detailed logging of decisions and actions.
+2024-11-11 21:43:08,107 - DEBUG - Unique detected item positions: [(np.int64(774), np.int64(170))]
+2024-11-11 21:43:08,108 - INFO - New item detected with ID: 1 at (np.int64(774), np.int64(170))
+2024-11-11 21:43:08,108 - INFO - Updated Tracker: {1: (np.int64(774), np.int64(170))}
+2024-11-11 21:43:08,108 - INFO - Targeting item ID 1 at position 774, 170
+2024-11-11 21:43:08,222 - INFO - Moved basket to x-position: 1986.8
+2024-11-11 21:43:08,595 - DEBUG - Unique detected item positions: [(np.int64(479), np.int64(144)), (np.int64(424), np.int64(277)), (np.int64(773), np.int64(366))]
+2024-11-11 21:43:08,595 - INFO - New item detected with ID: 2 at (np.int64(479), np.int64(144))
+2024-11-11 21:43:08,595 - INFO - New item detected with ID: 3 at (np.int64(424), np.int64(277))
+2024-11-11 21:43:08,595 - INFO - New item detected with ID: 4 at (np.int64(773), np.int64(366))
+2024-11-11 21:43:08,596 - INFO - Updated Tracker: {2: (np.int64(479), np.int64(144)), 3: (np.int64(424), np.int64(277)), 4: (np.int64(773), np.int64(366))}
+2024-11-11 21:43:08,596 - INFO - Targeting item ID 2 at position 479, 144
+2024-11-11 21:43:08,696 - INFO - Moved basket to x-position: 1833.9
+2024-11-11 21:43:09,082 - DEBUG - Unique detected item positions: [(np.int64(478), np.int64(321)), (np.int64(423), np.int64(494)), (np.int64(775), np.int64(546))]
+2024-11-11 21:43:09,084 - INFO - New item detected with ID: 5 at (np.int64(478), np.int64(321))
+2024-11-11 21:43:09,085 - INFO - New item detected with ID: 6 at (np.int64(423), np.int64(494))
+2024-11-11 21:43:09,086 - INFO - New item detected with ID: 7 at (np.int64(775), np.int64(546))
+2024-11-11 21:43:09,086 - INFO - Updated Tracker: {5: (np.int64(478), np.int64(321)), 6: (np.int64(423), np.int64(494)), 7: (np.int64(775), np.int64(546))}
+2024-11-11 21:43:09,087 - INFO - Targeting item ID 5 at position 478, 321
+2024-11-11 21:43:09,200 - INFO - Moved basket to x-position: 1726.5
+2024-11-11 21:43:09,547 - DEBUG - Unique detected item positions: [(np.int64(479), np.int64(501)), (np.int64(423), np.int64(713)), (np.int64(774), np.int64(729))]
+2024-11-11 21:43:09,548 - INFO - New item detected with ID: 8 at (np.int64(479), np.int64(501))
+2024-11-11 21:43:09,548 - INFO - New item detected with ID: 9 at (np.int64(423), np.int64(713))
+2024-11-11 21:43:09,548 - INFO - New item detected with ID: 10 at (np.int64(774), np.int64(729))
+2024-11-11 21:43:09,548 - INFO - Updated Tracker: {8: (np.int64(479), np.int64(501)), 9: (np.int64(423), np.int64(713)), 10: (np.int64(774), np.int64(729))}
+2024-11-11 21:43:09,548 - INFO - Targeting item ID 8 at position 479, 501
+2024-11-11 21:43:09,658 - INFO - Moved basket to x-position: 1651.9
+2024-11-11 21:43:10,107 - DEBUG - Unique detected item positions: [(np.int64(480), np.int64(683))]
+2024-11-11 21:43:10,108 - INFO - New item detected with ID: 11 at (np.int64(480), np.int64(683))
+2024-11-11 21:43:10,108 - INFO - Updated Tracker: {11: (np.int64(480), np.int64(683))}
+2024-11-11 21:43:10,108 - INFO - Targeting item ID 11 at position 480, 683
+2024-11-11 21:43:10,215 - INFO - Moved basket to x-position: 1599.7
+2024-11-11 21:43:10,549 - DEBUG - Unique detected item positions: [(np.int64(478), np.int64(882))]
+2024-11-11 21:43:10,551 - INFO - New item detected with ID: 12 at (np.int64(478), np.int64(882))
+2024-11-11 21:43:10,551 - INFO - Updated Tracker: {12: (np.int64(478), np.int64(882))}
+2024-11-11 21:43:10,551 - INFO - Targeting item ID 12 at position 478, 882
+2024-11-11 21:43:10,657 - INFO - Moved basket to x-position: 1562.7
+2024-11-11 21:43:11,022 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:11,023 - INFO - Updated Tracker: {}
+2024-11-11 21:43:11,023 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:11,413 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:11,414 - INFO - Updated Tracker: {}
+2024-11-11 21:43:11,414 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:11,794 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:11,795 - INFO - Updated Tracker: {}
+2024-11-11 21:43:11,795 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:12,150 - DEBUG - Unique detected item positions: [(np.int64(735), np.int64(239))]
+2024-11-11 21:43:12,151 - INFO - New item detected with ID: 13 at (np.int64(735), np.int64(239))
+2024-11-11 21:43:12,151 - INFO - Updated Tracker: {13: (np.int64(735), np.int64(239))}
+2024-11-11 21:43:12,151 - INFO - Targeting item ID 13 at position 735, 239
+2024-11-11 21:43:12,254 - INFO - Moved basket to x-position: 1613.9
+2024-11-11 21:43:12,656 - DEBUG - Unique detected item positions: [(np.int64(710), np.int64(156)), (np.int64(737), np.int64(455))]
+2024-11-11 21:43:12,657 - INFO - New item detected with ID: 14 at (np.int64(710), np.int64(156))
+2024-11-11 21:43:12,657 - INFO - New item detected with ID: 15 at (np.int64(737), np.int64(455))
+2024-11-11 21:43:12,657 - INFO - Updated Tracker: {14: (np.int64(710), np.int64(156)), 15: (np.int64(737), np.int64(455))}
+2024-11-11 21:43:12,657 - INFO - Targeting item ID 14 at position 710, 156
+2024-11-11 21:43:12,758 - INFO - Moved basket to x-position: 1642.1
+2024-11-11 21:43:13,110 - DEBUG - Unique detected item positions: [(np.int64(710), np.int64(336)), (np.int64(734), np.int64(674))]
+2024-11-11 21:43:13,111 - INFO - New item detected with ID: 16 at (np.int64(710), np.int64(336))
+2024-11-11 21:43:13,111 - INFO - New item detected with ID: 17 at (np.int64(734), np.int64(674))
+2024-11-11 21:43:13,111 - INFO - Updated Tracker: {16: (np.int64(710), np.int64(336)), 17: (np.int64(734), np.int64(674))}
+2024-11-11 21:43:13,111 - INFO - Targeting item ID 16 at position 710, 336
+2024-11-11 21:43:13,214 - INFO - Moved basket to x-position: 1662.4
+2024-11-11 21:43:13,629 - DEBUG - Unique detected item positions: [(np.int64(710), np.int64(501)), (np.int64(736), np.int64(875))]
+2024-11-11 21:43:13,630 - INFO - New item detected with ID: 18 at (np.int64(710), np.int64(501))
+2024-11-11 21:43:13,630 - INFO - New item detected with ID: 19 at (np.int64(736), np.int64(875))
+2024-11-11 21:43:13,632 - INFO - Updated Tracker: {18: (np.int64(710), np.int64(501)), 19: (np.int64(736), np.int64(875))}
+2024-11-11 21:43:13,632 - INFO - Targeting item ID 18 at position 710, 501
+2024-11-11 21:43:13,743 - INFO - Moved basket to x-position: 1676.4
+2024-11-11 21:43:14,104 - DEBUG - Unique detected item positions: [(np.int64(710), np.int64(714))]
+2024-11-11 21:43:14,105 - INFO - New item detected with ID: 20 at (np.int64(710), np.int64(714))
+2024-11-11 21:43:14,105 - INFO - Updated Tracker: {20: (np.int64(710), np.int64(714))}
+2024-11-11 21:43:14,105 - INFO - Targeting item ID 20 at position 710, 714
+2024-11-11 21:43:14,216 - INFO - Moved basket to x-position: 1686.2
+2024-11-11 21:43:14,553 - DEBUG - Unique detected item positions: [(np.int64(717), np.int64(167)), (np.int64(711), np.int64(882))]
+2024-11-11 21:43:14,554 - INFO - New item detected with ID: 21 at (np.int64(717), np.int64(167))
+2024-11-11 21:43:14,556 - INFO - New item detected with ID: 22 at (np.int64(711), np.int64(882))
+2024-11-11 21:43:14,556 - INFO - Updated Tracker: {21: (np.int64(717), np.int64(167)), 22: (np.int64(711), np.int64(882))}
+2024-11-11 21:43:14,557 - INFO - Targeting item ID 21 at position 717, 167
+2024-11-11 21:43:14,668 - INFO - Moved basket to x-position: 1695.3
+2024-11-11 21:43:15,055 - DEBUG - Unique detected item positions: [(np.int64(717), np.int64(384))]
+2024-11-11 21:43:15,056 - INFO - New item detected with ID: 23 at (np.int64(717), np.int64(384))
+2024-11-11 21:43:15,056 - INFO - Updated Tracker: {23: (np.int64(717), np.int64(384))}
+2024-11-11 21:43:15,056 - INFO - Targeting item ID 23 at position 717, 384
+2024-11-11 21:43:15,160 - INFO - Moved basket to x-position: 1701.6
+2024-11-11 21:43:15,494 - DEBUG - Unique detected item positions: [(np.int64(716), np.int64(601))]
+2024-11-11 21:43:15,496 - INFO - New item detected with ID: 24 at (np.int64(716), np.int64(601))
+2024-11-11 21:43:15,496 - INFO - Updated Tracker: {24: (np.int64(716), np.int64(601))}
+2024-11-11 21:43:15,496 - INFO - Targeting item ID 24 at position 716, 601
+2024-11-11 21:43:15,601 - INFO - Moved basket to x-position: 1705.5
+2024-11-11 21:43:15,982 - DEBUG - Unique detected item positions: [(np.int64(716), np.int64(802))]
+2024-11-11 21:43:15,984 - INFO - New item detected with ID: 25 at (np.int64(716), np.int64(802))
+2024-11-11 21:43:15,984 - INFO - Updated Tracker: {25: (np.int64(716), np.int64(802))}
+2024-11-11 21:43:15,984 - INFO - Targeting item ID 25 at position 716, 802
+2024-11-11 21:43:16,089 - INFO - Moved basket to x-position: 1708.3
+2024-11-11 21:43:16,425 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:16,425 - INFO - Updated Tracker: {}
+2024-11-11 21:43:16,425 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:16,790 - DEBUG - Unique detected item positions: [(np.int64(977), np.int64(247))]
+2024-11-11 21:43:16,790 - INFO - New item detected with ID: 26 at (np.int64(977), np.int64(247))
+2024-11-11 21:43:16,790 - INFO - Updated Tracker: {26: (np.int64(977), np.int64(247))}
+2024-11-11 21:43:16,790 - INFO - Targeting item ID 26 at position 977, 247
+2024-11-11 21:43:16,898 - INFO - Moved basket to x-position: 1788.7
+2024-11-11 21:43:17,262 - DEBUG - Unique detected item positions: [(np.int64(671), np.int64(245)), (np.int64(977), np.int64(390)), (np.int64(1137), np.int64(442))]
+2024-11-11 21:43:17,263 - INFO - New item detected with ID: 27 at (np.int64(671), np.int64(245))
+2024-11-11 21:43:17,263 - INFO - New item detected with ID: 28 at (np.int64(977), np.int64(390))
+2024-11-11 21:43:17,263 - INFO - New item detected with ID: 29 at (np.int64(1137), np.int64(442))
+2024-11-11 21:43:17,263 - INFO - Updated Tracker: {27: (np.int64(671), np.int64(245)), 28: (np.int64(977), np.int64(390)), 29: (np.int64(1137), np.int64(442))}
+2024-11-11 21:43:17,263 - INFO - Targeting item ID 27 at position 671, 245
+2024-11-11 21:43:17,372 - INFO - Moved basket to x-position: 1752.9
+2024-11-11 21:43:17,739 - DEBUG - Unique detected item positions: [(np.int64(405), np.int64(258)), (np.int64(671), np.int64(390)), (np.int64(977), np.int64(535))]
+2024-11-11 21:43:17,739 - INFO - New item detected with ID: 30 at (np.int64(405), np.int64(258))
+2024-11-11 21:43:17,740 - INFO - New item detected with ID: 31 at (np.int64(671), np.int64(390))
+2024-11-11 21:43:17,740 - INFO - New item detected with ID: 32 at (np.int64(977), np.int64(535))
+2024-11-11 21:43:17,740 - INFO - Updated Tracker: {30: (np.int64(405), np.int64(258)), 31: (np.int64(671), np.int64(390)), 32: (np.int64(977), np.int64(535))}
+2024-11-11 21:43:17,740 - INFO - Targeting item ID 30 at position 405, 258
+2024-11-11 21:43:17,849 - INFO - Moved basket to x-position: 1647.9
+2024-11-11 21:43:18,224 - DEBUG - Unique detected item positions: [(np.int64(405), np.int64(402)), (np.int64(671), np.int64(534)), (np.int64(977), np.int64(682))]
+2024-11-11 21:43:18,224 - INFO - New item detected with ID: 33 at (np.int64(405), np.int64(402))
+2024-11-11 21:43:18,225 - INFO - New item detected with ID: 34 at (np.int64(671), np.int64(534))
+2024-11-11 21:43:18,225 - INFO - New item detected with ID: 35 at (np.int64(977), np.int64(682))
+2024-11-11 21:43:18,225 - INFO - Updated Tracker: {33: (np.int64(405), np.int64(402)), 34: (np.int64(671), np.int64(534)), 35: (np.int64(977), np.int64(682))}
+2024-11-11 21:43:18,225 - INFO - Targeting item ID 33 at position 405, 402
+2024-11-11 21:43:18,339 - INFO - Moved basket to x-position: 1574.4
+2024-11-11 21:43:18,708 - DEBUG - Unique detected item positions: [(np.int64(406), np.int64(546)), (np.int64(671), np.int64(680)), (np.int64(977), np.int64(827))]
+2024-11-11 21:43:18,709 - INFO - New item detected with ID: 36 at (np.int64(406), np.int64(546))
+2024-11-11 21:43:18,709 - INFO - New item detected with ID: 37 at (np.int64(671), np.int64(680))
+2024-11-11 21:43:18,709 - INFO - New item detected with ID: 38 at (np.int64(977), np.int64(827))
+2024-11-11 21:43:18,709 - INFO - Updated Tracker: {36: (np.int64(406), np.int64(546)), 37: (np.int64(671), np.int64(680)), 38: (np.int64(977), np.int64(827))}
+2024-11-11 21:43:18,709 - INFO - Targeting item ID 36 at position 406, 546
+2024-11-11 21:43:18,810 - INFO - Moved basket to x-position: 1523.6
+2024-11-11 21:43:19,174 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:19,175 - INFO - Updated Tracker: {}
+2024-11-11 21:43:19,175 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:19,570 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:19,571 - INFO - Updated Tracker: {}
+2024-11-11 21:43:19,571 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:19,964 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:19,966 - INFO - Updated Tracker: {}
+2024-11-11 21:43:19,967 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:20,306 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:20,307 - INFO - Updated Tracker: {}
+2024-11-11 21:43:20,307 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:20,696 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:20,697 - INFO - Updated Tracker: {}
+2024-11-11 21:43:20,697 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:21,232 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:21,232 - INFO - Updated Tracker: {}
+2024-11-11 21:43:21,232 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:21,502 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:21,503 - INFO - Updated Tracker: {}
+2024-11-11 21:43:21,503 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:21,762 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:21,763 - INFO - Updated Tracker: {}
+2024-11-11 21:43:21,763 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:22,010 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:22,011 - INFO - Updated Tracker: {}
+2024-11-11 21:43:22,011 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:22,222 - DEBUG - Unique detected item positions: []
+2024-11-11 21:43:22,222 - INFO - Updated Tracker: {}
+2024-11-11 21:43:22,223 - INFO - No items detected or all items out of range.
+2024-11-11 21:43:22,284 - INFO - Exiting...
