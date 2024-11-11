@@ -6,11 +6,11 @@ import keyboard
 import logging
 from scipy.spatial import distance
 
-# Configure logging
+# Configure detailed logging
 logging.basicConfig(filename="game_log.txt", level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
-logging.info("Starting AI log with enhanced locking and proportional control")
+logging.info("Starting AI log with detailed tracking and decision logging")
 
-# Define the Region of Interest (ROI) based on your observations
+# Define the Region of Interest (ROI)
 x, y = 1000, 450
 width = 1400
 height = 1220
@@ -20,20 +20,20 @@ capture_height = height
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
-# Drop threshold y-coordinate (items below this y are considered caught)
+# Drop threshold y-coordinate
 drop_threshold_y = y + 955
 
 # Minimum distance between items to consider them unique
 MIN_DISTANCE = 50
 
-# Lock threshold to keep the AI focused on a target item once it's close enough to the basket
+# Lock threshold
 LOCK_Y_THRESHOLD = y + 850
 
 # Initialize a dictionary to keep track of items with unique IDs
 item_tracker = {}
 next_item_id = 1
-locked_item_id = None  # Holds the ID of the currently locked item
-adaptive_capture_interval = 0.05  # Capture frequency adjustment based on item proximity
+locked_item_id = None
+adaptive_capture_interval = 0.05
 
 def capture_screen():
     """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
@@ -74,6 +74,8 @@ def track_items(detected_positions):
             logging.info(f"New item detected with ID: {next_item_id} at {pos}")
             next_item_id += 1
 
+    # Log the updated tracker information for each frame
+    logging.info(f"Updated Tracker: {updated_tracker}")
     return updated_tracker
 
 def select_closest_item(tracked_items):
@@ -84,6 +86,7 @@ def select_closest_item(tracked_items):
 
     # If we have a locked item and it’s still within range, keep it locked
     if locked_item_id in tracked_items and tracked_items[locked_item_id][1] < drop_threshold_y:
+        logging.info(f"Maintaining lock on item ID {locked_item_id} at position {tracked_items[locked_item_id]}")
         return locked_item_id, tracked_items[locked_item_id]
 
     # Otherwise, select a new closest item by y-coordinate
@@ -92,6 +95,7 @@ def select_closest_item(tracked_items):
     # Lock onto this item if it’s close enough
     if closest_item[1][1] >= LOCK_Y_THRESHOLD:
         locked_item_id = closest_item[0]
+        logging.info(f"Locking onto new item ID {locked_item_id} at position {closest_item[1]}")
     else:
         locked_item_id = None
 
@@ -108,7 +112,7 @@ def move_basket_proportional(item_x, basket_center_x):
     logging.info(f"Moved basket to x-position: {basket_center_x + offset_x * proportional_speed}")
 
 def main():
-    logging.info("AI session started with enhanced locking and proportional basket movement.")
+    logging.info("AI session started with detailed logging of decisions and actions.")
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
 
@@ -127,9 +131,8 @@ def main():
         # Track and update item positions
         global item_tracker
         item_tracker = track_items(item_positions)
-        logging.info(f"Tracked items: {item_tracker}")
 
-        # Select the closest item based on priority (smallest y-coordinate)
+        # Select the closest item based on priority
         closest_item = select_closest_item(item_tracker)
         
         if closest_item:
