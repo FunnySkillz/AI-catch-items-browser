@@ -2,13 +2,13 @@ import cv2
 import pyautogui
 import numpy as np
 import time
-import keyboard  # For 'Esc' key exit
+import keyboard
 import logging
 from scipy.spatial import distance
 
 # Configure logging
 logging.basicConfig(filename="game_log.txt", level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
-logging.info("Starting AI log for continuous item detection")
+logging.info("Starting AI log with object tracking and prioritization")
 
 # Define the Region of Interest (ROI) based on your observations
 x, y = 1000, 450
@@ -20,11 +20,15 @@ capture_height = height
 template = cv2.imread("beer_bottle_template.png", cv2.IMREAD_GRAYSCALE)
 template_width, template_height = template.shape[::-1]
 
-# Drop threshold y-coordinate (items below this y cannot be collected)
-drop_threshold_y = y + 950
+# Drop threshold y-coordinate (items below this y are considered caught)
+drop_threshold_y = y + 955  # Slightly adjusted for better catching
 
 # Minimum distance between items to consider them unique
 MIN_DISTANCE = 50
+
+# Initialize a dictionary to keep track of items with unique IDs
+item_tracker = {}
+next_item_id = 1  # Incremental ID for each new detected item
 
 def capture_screen():
     """Captures a screenshot of the expanded ROI area and returns it in grayscale."""
@@ -48,14 +52,41 @@ def find_items(screen, template, threshold=0.6):
     logging.debug(f"Unique detected item positions: {sorted_positions}")
     return sorted_positions
 
+def track_items(detected_positions):
+    """Track detected items and assign or update unique IDs."""
+    global next_item_id
+    updated_tracker = {}
+
+    for pos in detected_positions:
+        found_match = False
+        for item_id, item_pos in item_tracker.items():
+            if distance.euclidean(pos, item_pos) < MIN_DISTANCE:
+                updated_tracker[item_id] = pos
+                found_match = True
+                break
+
+        if not found_match:
+            updated_tracker[next_item_id] = pos
+            logging.info(f"New item detected with ID: {next_item_id} at {pos}")
+            next_item_id += 1
+
+    return updated_tracker
+
+def select_closest_item(tracked_items):
+    """Selects the item closest to the basket to prioritize."""
+    if not tracked_items:
+        return None
+    closest_item = min(tracked_items.items(), key=lambda item: item[1][1])  # Min by y-coordinate
+    return closest_item
+
 def move_basket_to_item(item_x):
     """Moves the basket to the x-coordinate of the item."""
-    basket_x = x + item_x  # Convert item_x relative to screen's absolute x-coordinate
-    pyautogui.moveTo(basket_x, y + height - 30)  # Align with the item horizontally near the bottom of the game area
+    basket_x = x + item_x
+    pyautogui.moveTo(basket_x, y + height - 30)
     logging.info(f"Moved basket to x-position: {basket_x}")
 
 def main():
-    logging.info("AI session started for detecting items and basic basket movement.")
+    logging.info("AI session started for detecting items and basic basket movement with tracking.")
     print("Starting AI... Press 'Esc' to stop.")
     time.sleep(2)
 
@@ -71,16 +102,22 @@ def main():
         # Find unique positions of falling items
         item_positions = find_items(screen, template, threshold=0.6)
         
-        # Log all unique detected items
-        if item_positions:
-            logging.info(f"Detected unique items: {item_positions}")
-            closest_item = item_positions[0]  # Select the closest item (smallest y-coordinate)
-            
-            # Move basket to align with closest item
-            move_basket_to_item(closest_item[0])
+        # Track and update item positions
+        global item_tracker
+        item_tracker = track_items(item_positions)
+        logging.info(f"Tracked items: {item_tracker}")
 
+        # Select the closest item based on priority (smallest y-coordinate)
+        closest_item = select_closest_item(item_tracker)
+        
+        if closest_item:
+            item_id, (item_x, item_y) = closest_item
+            logging.info(f"Targeting item ID {item_id} at position {item_x}, {item_y}")
+
+            # Move basket to align with closest item
+            move_basket_to_item(item_x)
         else:
-            logging.info("No items detected.")
+            logging.info("No items detected or all items out of range.")
 
         # Pause briefly to avoid high CPU usage
         time.sleep(0.03)
